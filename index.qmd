@@ -1,0 +1,42 @@
+---
+title: "Corso LLM personalizzati"
+subtitle: "Costruiamo un modello linguistico da zero, un notebook alla volta"
+---
+
+Benvenuti nel portale del corso. Da qui raggiungiamo tutto il materiale:
+i **notebook** (leggibili direttamente nel sito, con gli output salvati),
+la **guida di installazione**, le **dispense PDF** e il **video** introduttivo.
+
+## Prima della prima lezione
+
+1. Seguiamo la guida [Setup: Python su Windows](installazione_python_windows_miniconda_vscode_jupyter_v14.md)
+   (disponibile anche [in PDF](installazione_python_windows_miniconda_vscode_jupyter_v14.pdf)).
+2. Guardiamo le slide di [Introduzione al corso (PDF)](Introduzione%20al%20corso.pdf).
+3. Chi usa la macchina virtuale: video [Introduzione alla VM di Overnet](materiali.qmd).
+
+## Il percorso dei notebook
+
+Ogni notebook si legge qui sul sito **e** si scarica per lavorarci in locale
+(tasto destro sul link → "Salva come", oppure dal [repository GitHub](https://github.com/antonio-corsi/Corso_LLM_personalizzati)).
+
+| # | Notebook | Tema |
+|---|---|---|
+| 1 | [Introduzione a PyTorch](1.%20Introduzione%20a%20PyTorch.ipynb) | Tensori, autograd, primi modelli |
+| 2 | [Pre-elaborazione di testi](2__Pre-elaborazione_di_testi_con_innesti_gpt-oss.ipynb) | Tokenizzazione, embedding, dataset |
+| 3 | [Il meccanismo dell'attenzione](3__Il_meccanismo_della_attenzione_con_innesti_gpt-oss.ipynb) | Self-attention passo per passo |
+| 4 | [L'architettura di un modello GPT](4__La_architettura_di_un_modello_GPT_per_la_generazione_di_testo_con_innesti_gpt-oss.ipynb) | Blocchi Transformer, generazione |
+| 5 | [Pre-allenamento su dati non etichettati](5__Pre-allenare_dati_non_etichettati_con_innesti_gpt-oss.ipynb) | Loss, ciclo di training |
+| 6 | [Fine-tuning per la classificazione](6__Fine_tuning_per_la_classificazione_con_innesti_gpt-oss.ipynb) | Adattare il modello a un compito |
+| — | [Demo: embedding contestuali](demo_embedding_contestuali.ipynb) | La parola «pesca» cambia vettore col contesto |
+
+::: {.callout-note}
+## Come usare i notebook durante il corso
+In aula eseguiamo i notebook in locale (VS Code + Jupyter, ambiente conda
+preparato con la guida di setup). Il sito serve per **studiare e ripassare**:
+le pagine mostrano codice e output senza bisogno di installare nulla.
+:::
+
+## Materiali di approfondimento
+
+Dispense PDF, infografiche, il video introduttivo e il dataset di esempio
+sono raccolti nella pagina [Materiali](materiali.qmd).

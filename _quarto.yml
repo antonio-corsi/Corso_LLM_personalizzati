@@ -1,0 +1,84 @@
+# ============================================================
+# Sito Quarto del corso "LLM personalizzati"
+# ------------------------------------------------------------
+# Comandi utili (dal nostro PC, nella radice del repository):
+#   quarto preview   -> anteprima locale con ricarica automatica
+#   quarto render    -> genera il sito nella cartella _site/
+# La pubblicazione su GitHub Pages avviene da sola a ogni push
+# (vedi .github/workflows/publish.yml).
+# ============================================================
+
+project:
+  type: website
+  output-dir: _site
+  # I file qui sotto vengono COPIATI nel sito cosi' come sono,
+  # anche se nessuna pagina li cita: servono per i link di download.
+  resources:
+    - "*.pdf"
+    - "*.png"
+    - "*.mp4"
+    - "*.txt"
+    - "*.ipynb"
+
+# IMPORTANTE: non eseguire il codice dei notebook durante la generazione.
+# Le pagine usano gli output gia' salvati nei file .ipynb; senza questa
+# riga Quarto proverebbe a eseguire PyTorch sul server di build.
+execute:
+  enabled: false
+
+lang: it
+
+website:
+  title: "Corso LLM personalizzati"
+  description: "Costruire un LLM da zero: notebook, dispense e materiali del corso."
+  search: true                  # casella di ricerca su tutto il sito
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: materiali.qmd
+        text: Materiali
+    right:
+      - icon: github
+        href: https://github.com/antonio-corsi/Corso_LLM_personalizzati
+        aria-label: Repository GitHub
+  sidebar:
+    style: docked
+    search: true
+    contents:
+      - href: index.qmd
+        text: "Home e percorso"
+      - href: installazione_python_windows_miniconda_vscode_jupyter_v14.md
+        text: "Setup: Python su Windows"
+      - section: "I notebook del corso"
+        contents:
+          - href: "1. Introduzione a PyTorch.ipynb"
+            text: "1 · Introduzione a PyTorch"
+          - href: "2__Pre-elaborazione_di_testi_con_innesti_gpt-oss.ipynb"
+            text: "2 · Pre-elaborazione di testi"
+          - href: "3__Il_meccanismo_della_attenzione_con_innesti_gpt-oss.ipynb"
+            text: "3 · Il meccanismo dell'attenzione"
+          - href: "4__La_architettura_di_un_modello_GPT_per_la_generazione_di_testo_con_innesti_gpt-oss.ipynb"
+            text: "4 · L'architettura di un modello GPT"
+          - href: "5__Pre-allenare_dati_non_etichettati_con_innesti_gpt-oss.ipynb"
+            text: "5 · Pre-allenamento su dati non etichettati"
+          - href: "6__Fine_tuning_per_la_classificazione_con_innesti_gpt-oss.ipynb"
+            text: "6 · Fine-tuning per la classificazione"
+      - section: "Demo"
+        contents:
+          - href: demo_embedding_contestuali.ipynb
+            text: "Demo · Embedding contestuali"
+      - href: materiali.qmd
+        text: "Materiali: PDF, video, dataset"
+  page-footer:
+    left: "Corso LLM personalizzati · Antonio"
+    right: "Sito generato con Quarto"
+
+format:
+  html:
+    theme: cosmo                # tema sobrio e leggibile
+    toc: true                   # indice dei titoli a lato di ogni pagina
+    toc-title: "In questa pagina"
+    toc-depth: 3
+    code-copy: true             # pulsante "copia" sui blocchi di codice
+    code-overflow: wrap

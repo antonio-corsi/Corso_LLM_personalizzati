@@ -1,0 +1,39 @@
+# ============================================================
+# Pubblicazione automatica del sito su GitHub Pages.
+# A ogni push su main: Quarto genera il sito e lo pubblica
+# sul ramo gh-pages.
+#
+# PRIMA VOLTA (una tantum, dal nostro PC nella radice del repo):
+#   quarto publish gh-pages
+# Questo crea il ramo gh-pages e attiva Pages. Da li' in poi
+# ci pensa questa Action. In alternativa, dopo il primo run
+# dell'Action: Settings -> Pages -> Source: "Deploy from a
+# branch" -> ramo gh-pages.
+# ============================================================
+
+name: Pubblica sito del corso
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}    # consente anche l'avvio manuale dalla pagina Actions
+
+permissions:
+  contents: write           # necessario per scrivere sul ramo gh-pages
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Scarica il repository
+        uses: actions/checkout@v4
+
+      - name: Installa Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Genera e pubblica il sito
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

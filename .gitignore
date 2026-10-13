@@ -1,1 +1,9 @@
 *.pptx
+__pycache__/
+gpt2/
+
+# --- Aggiunte per il sito Quarto (file generati, da non versionare) ---
+/_site/
+/.quarto/
+
+**/*.quarto_ipynb

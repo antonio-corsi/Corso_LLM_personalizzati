@@ -18,7 +18,7 @@ Python + estensioni Python
 
 In questo modo Python e i pacchetti utilizzati nel corso rimangono isolati dal resto del sistema.
 
----
+***
 
 ## Indice
 
@@ -42,7 +42,7 @@ In questo modo Python e i pacchetti utilizzati nel corso rimangono isolati dal r
 18. [Riepilogo dei comandi](#riepilogo-dei-comandi)
 19. [Concetto fondamentale](#concetto-fondamentale)
 
----
+***
 
 ## 1. Installare Visual Studio Code
 
@@ -61,7 +61,7 @@ code --version
 
 Se viene visualizzato il numero di versione di VS Code, il comando `code` è configurato correttamente.
 
----
+***
 
 ## 2. Installare Miniconda
 
@@ -99,7 +99,7 @@ Durante l'installazione:
 - **non è necessario aggiungere Miniconda al PATH di Windows**;
 - completare l'installazione con le opzioni predefinite.
 
----
+***
 
 ## 3. Rendere Conda disponibile nel Prompt dei comandi di Windows Terminal
 
@@ -139,7 +139,7 @@ conda 26.x.x
 
 > `conda init cmd.exe` deve normalmente essere eseguito una sola volta.
 
----
+***
 
 ## 4. Creare un ambiente Conda dedicato al corso
 
@@ -212,7 +212,7 @@ nell'ultima colonna "channel" deve sempre riportare **SOLO** *conda-forge*.
 > rmdir /s /q myenv 
 > ```
 
----
+***
 
 ## 5. Attivare l'ambiente del corso
 
@@ -244,7 +244,7 @@ echo %CONDA_PREFIX%
 
 Il prompt infatti mostra solo il nome dell'ambiente, la variabile dice anche **dove si trova l'ambiente sul disco**.
 
----
+***
 
 ## 6. Isolare l'ambiente con `PYTHONNOUSERSITE`
 
@@ -443,7 +443,7 @@ C:\Users\NomeUtente\miniconda3\envs\myenv\python.exe
 
 Questo comando è molto utile per controllare che sia effettivamente in uso il Python dell'ambiente Conda del corso.
 
----
+***
 
 ## 8. Aggiornare `pip`
 
@@ -459,7 +459,7 @@ Per verificare:
 python -m pip --version
 ```
 
----
+***
 
 ## 9. Installare i package con Conda
 
@@ -899,7 +899,7 @@ myenv
            eseguite
 ```
 
----
+***
 
 ### Installare `ipykernel`
 
@@ -939,7 +939,7 @@ VS Code / Jupyter  (interfaccia: celle, output)
 └─────────────────────────────────────┘
 ```
 
----
+***
 > 👉 Con altri strumenti, come **Jupyter Notebook o JupyterLab**, se essi vengono avviati da un ambiente diverso da `myenv`, è necessario anche **registrare il kernel**, cioè indicare a Jupyter quale interprete Python avviare. [Diversamente, se l'ambiente di avvio è `myenv`, il kernel predefinito è già quello dell'ambiente, e la registrazione non serve].
 >
 > La <u>sequenza completa e corretta</u> per **installare e registrare il kernel** è dunque:
@@ -959,7 +959,7 @@ VS Code / Jupyter  (interfaccia: celle, output)
 
 
 
----
+***
 
 ## 11. Avviare Visual Studio Code dall'ambiente Conda
 
@@ -1031,7 +1031,7 @@ Note:
 > - premere invio e si aprirà un terminale (del tipo scelto) **impostato su quel percorso** (senza doverci navigare dal terminale!!).
 
 
----
+***
 
 ## 12. Installare le estensioni Python e Jupyter in VS Code
 
@@ -1149,7 +1149,7 @@ Una volta creato il PDF, lo si può aprire e stampare normalmente.
 > - per leggere il Markdown: `Ctrl + Shift + V`
 > - per stamparlo: esportarlo prima in PDF e poi stampare il PDF
 
----
+***
 
 ### Le estensioni da installare
 
@@ -1241,10 +1241,10 @@ invia il codice al kernel  ⇄  riceve output, risultati ed errori
 mostra i risultati sotto la cella
 ```
 
----
+***
 > 📌 In ogni caso, in qualsiasi dei due casi, prima di eseguire le celle del notebook conviene verificare il **percorso** mostrato accanto al nome del kernel: è il percorso del `python.exe` dell'ambiente (`~` indica la cartella dell'utente) e <u>indica senza ambiguità quale ambiente verrà usato</u>.
 
----
+***
 
 #### Significato delle tre opzioni
 
@@ -1261,7 +1261,7 @@ Permette di scegliere uno degli ambienti Python installati sul computer:
 
 👉 In VS Code, quando si sceglie *Python Environments...*, **il kernel viene costruito a partire da uno specifico interprete Python appartenente a un ambiente Conda o virtuale**.
 
----
+***
 
 **Jupyter Kernel...**
 
@@ -1279,7 +1279,7 @@ Nel nostro approccio questo passaggio **non è normalmente necessario**, perché
 Python Environments...
 ```
 
----
+***
 
 **Existing Jupyter Server...**
 
@@ -1295,7 +1295,7 @@ Permette di collegare VS Code a un **Jupyter Server già esistente**, locale o r
 
 Nel nostro scenario locale su Windows **non è necessario**.
 
----
+***
 
 In sintesi:
 
@@ -1377,7 +1377,7 @@ Notebook .ipynb
 Kernel: myenv
 ```
 
----
+***
 
 ## 15. Terminare la sessione
 
@@ -1395,7 +1395,7 @@ Il prefisso:
 
 scomparirà dal prompt.
 
----
+***
 
 # Problemi comuni
 
@@ -1415,7 +1415,7 @@ conda init cmd.exe
 
 Chiudere completamente Windows Terminal e riaprirlo. [`conda init` infatti modifica impostazioni che il terminale legge solo all'avvio.]
 
----
+***
 
 ## `code` non viene riconosciuto
 
@@ -1429,7 +1429,7 @@ chiudere e riaprire Windows Terminal dopo l'installazione di VS Code.
 
 Se il problema rimane, verificare l'installazione di Visual Studio Code e che il comando `code` sia disponibile nel PATH.
 
----
+***
 
 ## VS Code utilizza il Python sbagliato
 
@@ -1451,7 +1451,7 @@ e scegliere:
 myenv
 ```
 
----
+***
 
 ## Il terminale integrato di VS Code apre PowerShell invece di cmd
 
@@ -1489,7 +1489,7 @@ e, dopo l'attivazione dell'ambiente:
 (myenv) C:\CorsoPython>
 ```
 
----
+***
 
 
 # In caso di problemi con VS Code / Jupyter
@@ -1508,7 +1508,7 @@ Ricarica la finestra di VS Code e riavvia l'interfaccia e le estensioni senza ch
 
 È il primo tentativo da fare quando VS Code sembra non aggiornare correttamente lo stato degli ambienti o delle estensioni.
 
----
+***
 
 ### 2. `Python Environments: Refresh All Environment Managers`
 
@@ -1520,7 +1520,7 @@ Forza VS Code a rieseguire la ricerca degli ambienti Python disponibili.
 - l'ambiente `myenv` non compare;
 - VS Code mostra un elenco di ambienti non aggiornato.
 
----
+***
 
 ### 3. `Python: Select Interpreter`
 
@@ -1538,7 +1538,7 @@ oppure una voce simile a:
 Python 3.12 (myenv)
 ```
 
----
+***
 
 ### 4. `Notebook: Select Notebook Kernel`
 
@@ -1556,7 +1556,7 @@ e quindi:
 myenv
 ```
 
----
+***
 
 ## Sequenza consigliata di troubleshooting
 
@@ -1647,4 +1647,4 @@ base
 
 Questo riduce i conflitti tra versioni di Python e librerie e rende l'ambiente del corso più semplice da riprodurre e gestire.
 
----
+***

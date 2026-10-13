@@ -1,0 +1,43 @@
+---
+title: "Materiali: PDF, video, infografiche e dataset"
+---
+
+Tutti i file si aprono nel browser o si scaricano con un clic.
+
+## Dispense e approfondimenti (PDF)
+
+- [Introduzione al corso](Introduzione%20al%20corso.pdf) — le slide di apertura
+- [Word embedding](Word%20embedding.pdf) — come le parole diventano vettori
+- [L'architettura Transformer](architettura_transformer.pdf)
+- [Il Transformer secondo ChatGPT](Transformer_secondo_chatGPT.pdf) — spiegazione divulgativa
+- [Attention — approfondimento](attention_DDoDS.pdf)
+- [Grafico della loss](loss-plot.pdf) · [Grafico della temperatura](temperature-plot.pdf)
+
+## Video
+
+Introduzione alla macchina virtuale di Overnet (per chi lavora sulla VM del corso):
+
+{{< video "Introduzione alla VM di Overnet.mp4" >}}
+
+## Infografiche
+
+- [Come funzionano i modelli linguistici](Come%20funzionano%20i%20modelli%20linguistici.png)
+- [Dai logits al prossimo token](Dai_logits_al_prossimo_token.png)
+- [Il prodotto interno tra vettori](Infografica%20sul%20prodotto%20interno%20tra%20vettori.png)
+- [Architettura MoE di GPT-OSS](Architettura%20MoE%20di%20GPT-OSS.png) · [MoE](MoE.png) · [Vantaggi del MoE](MoE_vantaggi.png)
+- [Forward pass](forward_pass.png) · [Backward pass](backward_pass.png) · [Training di una rete](training_NN.png)
+- [La cross-entropy loss](la-cross-entropy-loss.png)
+- [Embedding: angolo tra vettori](embedding_angolo_vettori.png)
+- [Idea di base](idea_base.png) · [Dizionari Python](python_dict.png)
+- [Confronto funzioni di attivazione](act_fx_comparison.png)
+
+## Dataset di esempio
+
+- [the-verdict.txt](the-verdict.txt) — il racconto usato nei notebook di pre-elaborazione e pre-allenamento
+
+::: {.callout-tip}
+## Per aggiungere nuovo materiale
+Basta copiare il file nella radice del repository e aggiungere qui una riga
+di elenco con il link: al push successivo il sito si aggiorna da solo.
+Nei link, gli spazi nei nomi dei file vanno scritti come `%20`.
+:::
