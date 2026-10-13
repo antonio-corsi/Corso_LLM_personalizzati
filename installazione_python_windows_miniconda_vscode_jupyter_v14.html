@@ -1,0 +1,1746 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="it" xml:lang="it"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>installazione_python_windows_miniconda_vscode_jupyter_v14 – Corso LLM personalizzati</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-711d5f0cb2eecbce4b54be160a5a7e6e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nessun risultato",
+    "search-matching-documents-text": "documenti trovati",
+    "search-copy-link-title": "Copiare il link nella ricerca",
+    "search-hide-matches-text": "Nascondere i risultati aggiuntivi",
+    "search-more-match-text": "ci sono altri risultati in questo documento",
+    "search-more-matches-text": "ulteriori risultati in questo documento",
+    "search-clear-button-title": "Pulire",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancellare",
+    "search-submit-button-title": "Inviare",
+    "search-label": "Ricerca"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Corso LLM personalizzati</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Ricerca"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Attiva/disattiva la navigazione" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./materiali.html"> 
+<span class="menu-text">Materiali</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/antonio-corsi/Corso_LLM_personalizzati"> <i class="bi bi-github" role="img" aria-label="Repository GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Attiva/disattiva la barra laterale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./installazione_python_windows_miniconda_vscode_jupyter_v14.html">Setup: Python su Windows</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Attiva/disattiva la barra laterale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Ricerca" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Ricerca"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home e percorso</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./installazione_python_windows_miniconda_vscode_jupyter_v14.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Setup: Python su Windows</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">I notebook del corso</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Attiva/disattiva sezione">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1. Introduzione a PyTorch.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1 · Introduzione a PyTorch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2__Pre-elaborazione_di_testi_con_innesti_gpt-oss.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2 · Pre-elaborazione di testi</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./3__Il_meccanismo_della_attenzione_con_innesti_gpt-oss.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3 · Il meccanismo dell’attenzione</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./4__La_architettura_di_un_modello_GPT_per_la_generazione_di_testo_con_innesti_gpt-oss.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4 · L’architettura di un modello GPT</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./5__Pre-allenare_dati_non_etichettati_con_innesti_gpt-oss.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5 · Pre-allenamento su dati non etichettati</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6__Fine_tuning_per_la_classificazione_con_innesti_gpt-oss.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6 · Fine-tuning per la classificazione</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Demo</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Attiva/disattiva sezione">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./demo_embedding_contestuali.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Demo · Embedding contestuali</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./materiali.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Materiali: PDF, video, dataset</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">In questa pagina</h2>
+   
+  <ul>
+  <li><a href="#installare-python-su-windows-1011-con-miniconda-conda-windows-terminal-e-visual-studio-code" id="toc-installare-python-su-windows-1011-con-miniconda-conda-windows-terminal-e-visual-studio-code" class="nav-link active" data-scroll-target="#installare-python-su-windows-1011-con-miniconda-conda-windows-terminal-e-visual-studio-code">Installare Python su Windows 10/11 con Miniconda, Conda, Windows Terminal e Visual Studio Code</a>
+  <ul class="collapse">
+  <li><a href="#indice" id="toc-indice" class="nav-link" data-scroll-target="#indice">Indice</a></li>
+  <li><a href="#installare-visual-studio-code" id="toc-installare-visual-studio-code" class="nav-link" data-scroll-target="#installare-visual-studio-code">1. Installare Visual Studio Code</a></li>
+  <li><a href="#installare-miniconda" id="toc-installare-miniconda" class="nav-link" data-scroll-target="#installare-miniconda">2. Installare Miniconda</a>
+  <ul class="collapse">
+  <li><a href="#impostazioni-consigliate" id="toc-impostazioni-consigliate" class="nav-link" data-scroll-target="#impostazioni-consigliate">Impostazioni consigliate</a></li>
+  </ul></li>
+  <li><a href="#rendere-conda-disponibile-nel-prompt-dei-comandi-di-windows-terminal" id="toc-rendere-conda-disponibile-nel-prompt-dei-comandi-di-windows-terminal" class="nav-link" data-scroll-target="#rendere-conda-disponibile-nel-prompt-dei-comandi-di-windows-terminal">3. Rendere Conda disponibile nel Prompt dei comandi di Windows Terminal</a></li>
+  <li><a href="#creare-un-ambiente-conda-dedicato-al-corso" id="toc-creare-un-ambiente-conda-dedicato-al-corso" class="nav-link" data-scroll-target="#creare-un-ambiente-conda-dedicato-al-corso">4. Creare un ambiente Conda dedicato al corso</a></li>
+  <li><a href="#attivare-lambiente-del-corso" id="toc-attivare-lambiente-del-corso" class="nav-link" data-scroll-target="#attivare-lambiente-del-corso">5. Attivare l’ambiente del corso</a></li>
+  <li><a href="#isolare-lambiente-con-pythonnousersite" id="toc-isolare-lambiente-con-pythonnousersite" class="nav-link" data-scroll-target="#isolare-lambiente-con-pythonnousersite">6. Isolare l’ambiente con <code>PYTHONNOUSERSITE</code></a></li>
+  <li><a href="#quando-eseguire-il-comando" id="toc-quando-eseguire-il-comando" class="nav-link" data-scroll-target="#quando-eseguire-il-comando">Quando eseguire il comando</a></li>
+  <li><a href="#attenzione-set-vale-solo-per-la-sessione-corrente" id="toc-attenzione-set-vale-solo-per-la-sessione-corrente" class="nav-link" data-scroll-target="#attenzione-set-vale-solo-per-la-sessione-corrente">Attenzione: <code>set</code> vale solo per la sessione corrente</a></li>
+  <li><a href="#verificare-il-valore" id="toc-verificare-il-valore" class="nav-link" data-scroll-target="#verificare-il-valore">Verificare il valore</a></li>
+  <li><a href="#rendere-persistente-il-set" id="toc-rendere-persistente-il-set" class="nav-link" data-scroll-target="#rendere-persistente-il-set">Rendere persistente il set</a></li>
+  <li><a href="#rimuovere-limpostazione-nella-sessione-corrente" id="toc-rimuovere-limpostazione-nella-sessione-corrente" class="nav-link" data-scroll-target="#rimuovere-limpostazione-nella-sessione-corrente">Rimuovere l’impostazione nella sessione corrente</a></li>
+  <li><a href="#verificare-python" id="toc-verificare-python" class="nav-link" data-scroll-target="#verificare-python">7. Verificare Python</a></li>
+  <li><a href="#aggiornare-pip" id="toc-aggiornare-pip" class="nav-link" data-scroll-target="#aggiornare-pip">8. Aggiornare <code>pip</code></a></li>
+  <li><a href="#installare-i-package-con-conda" id="toc-installare-i-package-con-conda" class="nav-link" data-scroll-target="#installare-i-package-con-conda">9. Installare i package con Conda</a>
+  <ul class="collapse">
+  <li><a href="#specificare-il-canale" id="toc-specificare-il-canale" class="nav-link" data-scroll-target="#specificare-il-canale">Specificare il canale</a></li>
+  <li><a href="#installare-i-package-necessari-al-corso" id="toc-installare-i-package-necessari-al-corso" class="nav-link" data-scroll-target="#installare-i-package-necessari-al-corso">Installare i package necessari al corso</a></li>
+  <li><a href="#pip-list" id="toc-pip-list" class="nav-link" data-scroll-target="#pip-list">pip list</a></li>
+  <li><a href="#strategia-di-installazione" id="toc-strategia-di-installazione" class="nav-link" data-scroll-target="#strategia-di-installazione">Strategia di installazione</a></li>
+  <li><a href="#forma-consigliata-per-pip" id="toc-forma-consigliata-per-pip" class="nav-link" data-scroll-target="#forma-consigliata-per-pip">Forma consigliata per pip</a></li>
+  <li><a href="#comandi-pip-da-evitare" id="toc-comandi-pip-da-evitare" class="nav-link" data-scroll-target="#comandi-pip-da-evitare">Comandi <code>pip</code> da evitare</a></li>
+  <li><a href="#riavvio-del-kernel" id="toc-riavvio-del-kernel" class="nav-link" data-scroll-target="#riavvio-del-kernel">Riavvio del kernel</a></li>
+  <li><a href="#installazioni-da-ide" id="toc-installazioni-da-ide" class="nav-link" data-scroll-target="#installazioni-da-ide">Installazioni da IDE??</a></li>
+  </ul></li>
+  <li><a href="#interprete-python-e-kernel-jupyter" id="toc-interprete-python-e-kernel-jupyter" class="nav-link" data-scroll-target="#interprete-python-e-kernel-jupyter">10. Interprete Python e kernel Jupyter</a>
+  <ul class="collapse">
+  <li><a href="#linterprete-python" id="toc-linterprete-python" class="nav-link" data-scroll-target="#linterprete-python">L’interprete Python</a></li>
+  <li><a href="#il-kernel-jupyter" id="toc-il-kernel-jupyter" class="nav-link" data-scroll-target="#il-kernel-jupyter">Il kernel Jupyter</a></li>
+  <li><a href="#installare-ipykernel" id="toc-installare-ipykernel" class="nav-link" data-scroll-target="#installare-ipykernel">Installare <code>ipykernel</code></a></li>
+  </ul></li>
+  <li><a href="#avviare-visual-studio-code-dallambiente-conda" id="toc-avviare-visual-studio-code-dallambiente-conda" class="nav-link" data-scroll-target="#avviare-visual-studio-code-dallambiente-conda">11. Avviare Visual Studio Code dall’ambiente Conda</a></li>
+  <li><a href="#installare-le-estensioni-python-e-jupyter-in-vs-code" id="toc-installare-le-estensioni-python-e-jupyter-in-vs-code" class="nav-link" data-scroll-target="#installare-le-estensioni-python-e-jupyter-in-vs-code">12. Installare le estensioni Python e Jupyter in VS Code</a>
+  <ul class="collapse">
+  <li><a href="#pylance" id="toc-pylance" class="nav-link" data-scroll-target="#pylance">1. Pylance</a></li>
+  <li><a href="#python" id="toc-python" class="nav-link" data-scroll-target="#python">2. Python</a></li>
+  <li><a href="#python-debugger" id="toc-python-debugger" class="nav-link" data-scroll-target="#python-debugger">3. Python Debugger</a></li>
+  <li><a href="#python-environments" id="toc-python-environments" class="nav-link" data-scroll-target="#python-environments">4. Python Environments</a></li>
+  <li><a href="#jupyter" id="toc-jupyter" class="nav-link" data-scroll-target="#jupyter">5. Jupyter</a></li>
+  <li><a href="#stampare-un-file-markdown-aperto-in-vs-code" id="toc-stampare-un-file-markdown-aperto-in-vs-code" class="nav-link" data-scroll-target="#stampare-un-file-markdown-aperto-in-vs-code">Stampare un file Markdown aperto in VS Code</a></li>
+  <li><a href="#le-estensioni-da-installare" id="toc-le-estensioni-da-installare" class="nav-link" data-scroll-target="#le-estensioni-da-installare">Le estensioni da installare</a></li>
+  </ul></li>
+  <li><a href="#selezionare-il-kernel-in-vs-code-con-file-.ipynb" id="toc-selezionare-il-kernel-in-vs-code-con-file-.ipynb" class="nav-link" data-scroll-target="#selezionare-il-kernel-in-vs-code-con-file-.ipynb">13. Selezionare il kernel in VS Code (con file .ipynb)</a></li>
+  <li><a href="#flusso-di-lavoro-consigliato-durante-il-corso" id="toc-flusso-di-lavoro-consigliato-durante-il-corso" class="nav-link" data-scroll-target="#flusso-di-lavoro-consigliato-durante-il-corso">14. Flusso di lavoro consigliato durante il corso</a></li>
+  <li><a href="#terminare-la-sessione" id="toc-terminare-la-sessione" class="nav-link" data-scroll-target="#terminare-la-sessione">15. Terminare la sessione</a></li>
+  </ul></li>
+  <li><a href="#problemi-comuni" id="toc-problemi-comuni" class="nav-link" data-scroll-target="#problemi-comuni">Problemi comuni</a>
+  <ul class="collapse">
+  <li><a href="#conda-non-viene-riconosciuto" id="toc-conda-non-viene-riconosciuto" class="nav-link" data-scroll-target="#conda-non-viene-riconosciuto"><code>conda</code> non viene riconosciuto</a></li>
+  <li><a href="#code-non-viene-riconosciuto" id="toc-code-non-viene-riconosciuto" class="nav-link" data-scroll-target="#code-non-viene-riconosciuto"><code>code</code> non viene riconosciuto</a></li>
+  <li><a href="#vs-code-utilizza-il-python-sbagliato" id="toc-vs-code-utilizza-il-python-sbagliato" class="nav-link" data-scroll-target="#vs-code-utilizza-il-python-sbagliato">VS Code utilizza il Python sbagliato</a></li>
+  <li><a href="#il-terminale-integrato-di-vs-code-apre-powershell-invece-di-cmd" id="toc-il-terminale-integrato-di-vs-code-apre-powershell-invece-di-cmd" class="nav-link" data-scroll-target="#il-terminale-integrato-di-vs-code-apre-powershell-invece-di-cmd">Il terminale integrato di VS Code apre PowerShell invece di cmd</a></li>
+  </ul></li>
+  <li><a href="#in-caso-di-problemi-con-vs-code-jupyter" id="toc-in-caso-di-problemi-con-vs-code-jupyter" class="nav-link" data-scroll-target="#in-caso-di-problemi-con-vs-code-jupyter">In caso di problemi con VS Code / Jupyter</a>
+  <ul class="collapse">
+  <li><a href="#developer-reload-window" id="toc-developer-reload-window" class="nav-link" data-scroll-target="#developer-reload-window">1. <code>Developer: Reload Window</code></a></li>
+  <li><a href="#python-environments-refresh-all-environment-managers" id="toc-python-environments-refresh-all-environment-managers" class="nav-link" data-scroll-target="#python-environments-refresh-all-environment-managers">2. <code>Python Environments: Refresh All Environment Managers</code></a></li>
+  <li><a href="#python-select-interpreter" id="toc-python-select-interpreter" class="nav-link" data-scroll-target="#python-select-interpreter">3. <code>Python: Select Interpreter</code></a></li>
+  <li><a href="#notebook-select-notebook-kernel" id="toc-notebook-select-notebook-kernel" class="nav-link" data-scroll-target="#notebook-select-notebook-kernel">4. <code>Notebook: Select Notebook Kernel</code></a></li>
+  <li><a href="#sequenza-consigliata-di-troubleshooting" id="toc-sequenza-consigliata-di-troubleshooting" class="nav-link" data-scroll-target="#sequenza-consigliata-di-troubleshooting">Sequenza consigliata di troubleshooting</a></li>
+  </ul></li>
+  <li><a href="#riepilogo-dei-comandi" id="toc-riepilogo-dei-comandi" class="nav-link" data-scroll-target="#riepilogo-dei-comandi">Riepilogo dei comandi</a></li>
+  <li><a href="#concetto-fondamentale" id="toc-concetto-fondamentale" class="nav-link" data-scroll-target="#concetto-fondamentale">Concetto fondamentale</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="installare-python-su-windows-1011-con-miniconda-conda-windows-terminal-e-visual-studio-code" class="level1">
+<h1>Installare Python su Windows 10/11 con Miniconda, Conda, Windows Terminal e Visual Studio Code</h1>
+<p>Questa guida descrive una configurazione semplice e ordinata per utilizzare <strong>Python su Windows 10/11</strong> durante il corso, usando <strong>Prompt dei comandi (cmd)</strong> all’interno di <strong>Windows Terminal</strong>.</p>
+<p>L’idea è:</p>
+<pre class="text"><code>Miniconda
+   ↓
+Conda
+   ↓
+Prompt dei comandi (cmd)
+   ↓
+Visual Studio Code
+   ↓
+Python + estensioni Python</code></pre>
+<p>In questo modo Python e i pacchetti utilizzati nel corso rimangono isolati dal resto del sistema.</p>
+<hr>
+<section id="indice" class="level2">
+<h2 class="anchored" data-anchor-id="indice">Indice</h2>
+<ol type="1">
+<li><a href="#1-installare-visual-studio-code">Installare Visual Studio Code</a></li>
+<li><a href="#2-installare-miniconda">Installare Miniconda</a></li>
+<li><a href="#3-rendere-conda-disponibile-nel-prompt-dei-comandi-di-windows-terminal">Rendere Conda disponibile nel Prompt dei comandi di Windows Terminal</a></li>
+<li><a href="#4-creare-un-ambiente-conda-dedicato-al-corso">Creare un ambiente Conda dedicato al corso</a></li>
+<li><a href="#5-attivare-lambiente-del-corso">Attivare l’ambiente del corso</a></li>
+<li><a href="#6-isolare-lambiente-con-pythonnousersite">Isolare l’ambiente con <code>PYTHONNOUSERSITE</code></a></li>
+<li><a href="#7-verificare-python">Verificare Python</a></li>
+<li><a href="#8-aggiornare-pip">Aggiornare <code>pip</code></a></li>
+<li><a href="#9-installare-i-package-con-conda">Installare i package con Conda</a></li>
+<li><a href="#10-interprete-python-e-kernel-jupyter">Interprete Python e kernel Jupyter</a></li>
+<li><a href="#11-avviare-visual-studio-code-dallambiente-conda">Avviare Visual Studio Code dall’ambiente Conda</a></li>
+<li><a href="#12-installare-le-estensioni-python-e-jupyter-in-vs-code">Installare le estensioni Python e Jupyter in VS Code</a></li>
+<li><a href="#13-selezionare-il-kernel-in-vs-code">Selezionare il kernel in VS Code</a></li>
+<li><a href="#14-flusso-di-lavoro-consigliato-durante-il-corso">Flusso di lavoro consigliato durante il corso</a></li>
+<li><a href="#15-terminare-la-sessione">Terminare la sessione</a></li>
+<li><a href="#problemi-comuni">Problemi comuni</a></li>
+<li><a href="#in-caso-di-problemi-con-vs-code--jupyter">In caso di problemi con VS Code / Jupyter</a></li>
+<li><a href="#riepilogo-dei-comandi">Riepilogo dei comandi</a></li>
+<li><a href="#concetto-fondamentale">Concetto fondamentale</a></li>
+</ol>
+<hr>
+</section>
+<section id="installare-visual-studio-code" class="level2">
+<h2 class="anchored" data-anchor-id="installare-visual-studio-code">1. Installare Visual Studio Code</h2>
+<p>Se Visual Studio Code non è già installato:</p>
+<ol type="1">
+<li>scaricare <strong>Visual Studio Code</strong> dal sito ufficiale Microsoft;</li>
+<li>eseguire il programma di installazione;</li>
+<li>lasciare attive le opzioni standard;</li>
+<li>verificare che il comando <code>code</code> sia disponibile da terminale.</li>
+</ol>
+<p>Aprire <strong>Windows Terminal</strong> usando il profilo <strong>Prompt dei comandi</strong> e digitare:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>code -<span class="at">-version</span></span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Se viene visualizzato il numero di versione di VS Code, il comando <code>code</code> è configurato correttamente.</p>
+<hr>
+</section>
+<section id="installare-miniconda" class="level2">
+<h2 class="anchored" data-anchor-id="installare-miniconda">2. Installare Miniconda</h2>
+<p><strong>Miniconda</strong> è una distribuzione minimale che installa:</p>
+<ul>
+<li>Python;</li>
+<li><code>conda</code>, il gestore degli ambienti e dei pacchetti;</li>
+<li>pochi altri componenti essenziali.</li>
+</ul>
+<p>È più leggera di Anaconda e permette di installare soltanto ciò che serve.</p>
+<p>Scaricare dal sito ufficiale la versione di <strong>Miniconda per Windows 64 bit</strong> ed eseguire il file <code>.exe</code>.</p>
+<p>E’ possibile <strong>aggiornare conda</strong>, in caso di nuova versione, con</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>conda update <span class="at">-n</span> base</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>oppure (se la nuova versione fosse, per ipotesi, la 26.7.2):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>conda install <span class="at">-n</span> base <span class="at">-c</span> defaults conda=26.7.2</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p><em>base</em> è l’ambiente dove vive conda.</p>
+<section id="impostazioni-consigliate" class="level3">
+<h3 class="anchored" data-anchor-id="impostazioni-consigliate">Impostazioni consigliate</h3>
+<p>Durante l’installazione:</p>
+<ul>
+<li>scegliere <strong>Just Me</strong>, salvo esigenze particolari;</li>
+<li>lasciare la cartella di installazione proposta;</li>
+<li><strong>non è necessario aggiungere Miniconda al PATH di Windows</strong>;</li>
+<li>completare l’installazione con le opzioni predefinite.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="rendere-conda-disponibile-nel-prompt-dei-comandi-di-windows-terminal" class="level2">
+<h2 class="anchored" data-anchor-id="rendere-conda-disponibile-nel-prompt-dei-comandi-di-windows-terminal">3. Rendere Conda disponibile nel Prompt dei comandi di Windows Terminal</h2>
+<p>Dopo l’installazione di Miniconda, può essere necessario inizializzare Conda una sola volta per <strong>cmd.exe</strong>.</p>
+<p>Dal menu <strong>Start</strong> aprire:</p>
+<pre class="text"><code>Miniconda Prompt</code></pre>
+<p>e digitare:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>conda init cmd.exe</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Chiudere quindi Miniconda Prompt.</p>
+<p>Chiudere anche eventuali finestre di Windows Terminal già aperte e riaprire <strong>Windows Terminal</strong> con il profilo:</p>
+<pre class="text"><code>Prompt dei comandi</code></pre>
+<p>Verificare che Conda sia disponibile:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>conda -<span class="at">-version</span></span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ad esempio:</p>
+<pre class="text"><code>conda 26.x.x</code></pre>
+<blockquote class="blockquote">
+<p><code>conda init cmd.exe</code> deve normalmente essere eseguito una sola volta.</p>
+</blockquote>
+<hr>
+</section>
+<section id="creare-un-ambiente-conda-dedicato-al-corso" class="level2">
+<h2 class="anchored" data-anchor-id="creare-un-ambiente-conda-dedicato-al-corso">4. Creare un ambiente Conda dedicato al corso</h2>
+<p>È buona pratica <strong>non lavorare direttamente nell’ambiente <code>base</code></strong>.</p>
+<p>Creiamo un ambiente separato per il corso, al quale diamo il <strong>generico nome di <em>myenv</em></strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>conda create <span class="at">-n</span> myenv python=3.11</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Dove:</p>
+<ul>
+<li><code>conda create</code> crea un nuovo ambiente;</li>
+<li><code>-n myenv</code> assegna il nome <code>myenv</code>;</li>
+<li><code>python=3.11</code> installa Python 3.11 nell’ambiente.</li>
+</ul>
+<p>Quando Conda chiede:</p>
+<pre class="text"><code>Proceed ([y]/n)?</code></pre>
+<p>digitare:</p>
+<pre class="text"><code>y</code></pre>
+<p>e premere <strong>Invio</strong>.</p>
+<p>Per vedere gli ambienti disponibili:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>conda env list</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>oppure:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>conda info -<span class="at">-envs</span></span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Un comando <strong>migliore</strong> di creazione dell’ambiente conda, tuttavia, è il seguente:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>conda create <span class="at">-n</span> myenv <span class="at">-c</span> conda<span class="at">-forge</span> -<span class="at">-override-channels</span> python=3.11</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Con <code>--override-channels</code> conda usa solo <em>conda-forge</em> e ignora <code>defaults</code>. Non mescola quindi pacchetti compilati in modo diverso, che è la causa tipica dei conflitti. Il comando dà lo stesso risultato su qualsiasi PC, qualunque sia la sua configurazione, e non tocca il canale di Anaconda, soggetto a condizioni di licenza per l’uso in azienda.</p>
+<p>👉 Dopo questo comando, l’output di:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>conda list</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>nell’ultima colonna “channel” deve sempre riportare <strong>SOLO</strong> <em>conda-forge</em>.</p>
+<blockquote class="blockquote">
+<p>📌 Se l’ambiente <em>myenv</em> esiste già e lo si vuole ricreare occorre prima <strong>cancellarlo</strong> con il comando conda:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>conda remove -<span class="at">-name</span> myenv -<span class="at">-all</span> <span class="at">-y</span> </span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>e poi per sicurezza verificare che la cartella <em>%USERPROFILE%non esista più.<br> Altrimenti la si cancella (dalla cartella padre) con il comando da terminale </em>cmd*:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">rmdir</span> <span class="at">/s</span> <span class="at">/q</span> myenv </span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+</blockquote>
+<hr>
+</section>
+<section id="attivare-lambiente-del-corso" class="level2">
+<h2 class="anchored" data-anchor-id="attivare-lambiente-del-corso">5. Attivare l’ambiente del corso</h2>
+<p>Ogni volta che si inizia a lavorare al corso, aprire <strong>Windows Terminal</strong> con il profilo <strong>Prompt dei comandi</strong> e digitare:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>conda activate myenv</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Il prompt dovrebbe cambiare e mostrare il nome dell’ambiente:</p>
+<pre class="text"><code>(myenv) C:\Users\NomeUtente&gt;</code></pre>
+<p>La presenza di:</p>
+<pre class="text"><code>(myenv)</code></pre>
+<p>indica che l’ambiente è attivo.</p>
+<p>Una <u>ulteriore verifica dell’ambiente attivo</u>, che fornisce anche il cammino dell’ambiente, è la seguente:</p>
+<pre class="text"><code>echo %CONDA_PREFIX%</code></pre>
+<p>Il prompt infatti mostra solo il nome dell’ambiente, la variabile dice anche <strong>dove si trova l’ambiente sul disco</strong>.</p>
+<hr>
+</section>
+<section id="isolare-lambiente-con-pythonnousersite" class="level2">
+<h2 class="anchored" data-anchor-id="isolare-lambiente-con-pythonnousersite">6. Isolare l’ambiente con <code>PYTHONNOUSERSITE</code></h2>
+<p>In alcuni computer Python può trovare package installati in precedenza nella cartella personale dell’utente (il cosiddetto <em>user-site</em>), anche quando è attivo un ambiente Conda.</p>
+<p>Per evitare che Python utilizzi questi package esterni all’ambiente del corso, nel <strong>Prompt dei comandi (cmd)</strong> si può impostare (<strong>nell’ambiente <em>myenv</em> attivo</strong>):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> <span class="va">PYTHONNOUSERSITE</span>=1</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Questa variabile d’ambiente dice a Python:</p>
+<blockquote class="blockquote">
+<p>non aggiungere al percorso di ricerca dei moduli la cartella <em>user site-packages</em> dell’utente.</p>
+</blockquote>
+<p>Infatti, essa significa:</p>
+<pre class="text"><code>PYTHON      → riguarda il comportamento di Python
+NO          → esclude
+USER SITE   → la cartella dei package installati a livello utente
+=1          → attiva questa opzione</code></pre>
+<p>In pratica, aiuta a <strong>fare in modo che Python utilizzi soltanto i package disponibili nell’ambiente Conda attivo e nelle sue dipendenze</strong>.</p>
+<p>Schema semplificato:</p>
+<pre class="text"><code>Senza PYTHONNOUSERSITE=1
+
+Ambiente Conda
+      │
+      ├── package dell'ambiente
+      │
+      └── possibili package installati nella cartella utente (user-site)
+                         ↑
+                  possibile interferenza</code></pre>
+<p>Con:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> <span class="va">PYTHONNOUSERSITE</span>=1</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>si ottiene:</p>
+<pre class="text"><code>Ambiente Conda
+      │
+      └── package dell'ambiente
+             ↑
+      ambiente più isolato</code></pre>
+<p>Questo può essere utile soprattutto durante un corso, perché riduce il rischio che due partecipanti ottengano comportamenti diversi a causa di package Python installati in precedenza sul proprio computer.</p>
+</section>
+<section id="quando-eseguire-il-comando" class="level2">
+<h2 class="anchored" data-anchor-id="quando-eseguire-il-comando">Quando eseguire il comando</h2>
+<p>Una possibile sequenza di avvio della sessione è:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>conda activate myenv</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> <span class="va">PYTHONNOUSERSITE</span>=1</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Più avanti, <strong>non ora</strong>, lanceremo VS Code da terminale con:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>code</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>In questo modo VS Code verrà lanciato con la variabile <em>PYTHONNOUSERSITE</em> già impostata e la erediterà.</p>
+</section>
+<section id="attenzione-set-vale-solo-per-la-sessione-corrente" class="level2">
+<h2 class="anchored" data-anchor-id="attenzione-set-vale-solo-per-la-sessione-corrente">Attenzione: <code>set</code> vale solo per la sessione corrente</h2>
+<p>Con il Prompt dei comandi, il comando:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> <span class="va">PYTHONNOUSERSITE</span>=1</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>imposta la variabile soltanto nella finestra di terminale corrente e nei programmi avviati da essa.</p>
+<p>Chiudendo quella finestra di Windows Terminal, l’impostazione viene persa.</p>
+<p>Quindi, alla sessione successiva, occorre eventualmente eseguire di nuovo:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> <span class="va">PYTHONNOUSERSITE</span>=1</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Questo comportamento è spesso preferibile durante un corso, perché non modifica permanentemente la configurazione di Windows.</p>
+</section>
+<section id="verificare-il-valore" class="level2">
+<h2 class="anchored" data-anchor-id="verificare-il-valore">Verificare il valore</h2>
+<p>Per controllare che la variabile sia impostata:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="pp">%</span><span class="va">PYTHONNOUSERSITE</span><span class="pp">%</span></span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>L’output dovrebbe essere:</p>
+<pre class="text"><code>1</code></pre>
+</section>
+<section id="rendere-persistente-il-set" class="level2">
+<h2 class="anchored" data-anchor-id="rendere-persistente-il-set">Rendere persistente il set</h2>
+<p>Per evitare di doversi ricordare di settare la variabile <em>PYTHONNOUSERSITE</em> ad ogni nuova istanza di terminale, si può rendere il set persistente con:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>setx PYTHONNOUSERSITE 1</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Da sapere: - <code>setx</code> vale solo per <strong>i terminali aperti dopo il comando, non per la finestra corrente</strong>. Lì serve ancora una volta set PYTHONNOUSERSITE=1, oppure si chiude e si riapre. - <strong>i programmi già aperti non la vedono. VS Code va chiuso del tutto</strong>, in tutte le finestre, e riaperto. Da quel momento la ereditano anche i kernel dei notebook. - non servono i diritti di amministratore. La variabile viene scritta nel registro alla chiave HKCUe vale solo per il tuo utente. Con /M in fondo, da un prompt aperto come amministratore, varrebbe per tutti gli utenti del PC. - riguarda tutti i Python del tuo utente, in ogni ambiente e in ogni terminale (cmd, PowerShell, VS Code). I pacchetti installati con pip install –user diventano invisibili ovunque.</p>
+<p>Verifica, in un terminale nuovo:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="pp">%</span><span class="va">PYTHONNOUSERSITE</span><span class="pp">%</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>python <span class="at">-m</span> site</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Il primo comando <strong>deve stampare 1</strong>. In fondo all’output del secondo <strong>deve comparire <em>ENABLE_USER_SITE: False</em></strong>.</p>
+<p>Inoltre, un controllo complementare è il seguente:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>python <span class="at">-m</span> pip list -<span class="at">-user</span></span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Il comando elenca <strong>che cosa c’è nella cartella utente</strong> e <code>python -m site --user-site</code> ne stampa <strong>il percorso</strong>. Va eseguito con la variabile non impostata, altrimenti l’elenco risulta vuoto. Se lì non c’è nulla che ti serva, svuotare quella cartella elimina il problema alla radice. La variabile resta allora come protezione per il futuro.</p>
+</section>
+<section id="rimuovere-limpostazione-nella-sessione-corrente" class="level2">
+<h2 class="anchored" data-anchor-id="rimuovere-limpostazione-nella-sessione-corrente">Rimuovere l’impostazione nella sessione corrente</h2>
+<p>Per cancellare la variabile:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> <span class="va">PYTHONNOUSERSITE</span>=</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Dopo questo comando:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb38"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="pp">%</span><span class="va">PYTHONNOUSERSITE</span><span class="pp">%</span></span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>non dovrebbe più mostrare <code>1</code>.</p>
+</section>
+<section id="verificare-python" class="level2">
+<h2 class="anchored" data-anchor-id="verificare-python">7. Verificare Python</h2>
+<p>Con l’ambiente attivo:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>python -<span class="at">-version</span></span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ad esempio:</p>
+<pre class="text"><code>Python 3.11.x</code></pre>
+<p>Per verificare quale eseguibile Python viene utilizzato:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>where python</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Il primo percorso mostrato dovrebbe fare riferimento alla cartella dell’ambiente Conda <code>myenv</code>.</p>
+<p>Per verificare <strong>esattamente quale interprete Python sta eseguendo il comando</strong>, si può usare anche:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb42"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>python <span class="at">-c</span> <span class="st">"import sys; print(sys.executable)"</span></span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Il significato è:</p>
+<ul>
+<li><code>python</code> avvia l’interprete Python attualmente attivo;</li>
+<li><code>-c</code> significa <strong>esegui direttamente il codice indicato tra virgolette</strong>;</li>
+<li><code>import sys</code> importa il modulo di sistema <code>sys</code>;</li>
+<li><code>sys.executable</code> contiene il percorso completo dell’interprete Python in uso;</li>
+<li><code>print(...)</code> visualizza quel percorso.</li>
+</ul>
+<p>Esempio di risultato:</p>
+<pre class="text"><code>C:\Users\NomeUtente\miniconda3\envs\myenv\python.exe</code></pre>
+<p>Questo comando è molto utile per controllare che sia effettivamente in uso il Python dell’ambiente Conda del corso.</p>
+<hr>
+</section>
+<section id="aggiornare-pip" class="level2">
+<h2 class="anchored" data-anchor-id="aggiornare-pip">8. Aggiornare <code>pip</code></h2>
+<p>Con l’ambiente attivo:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb44"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>python <span class="at">-m</span> pip install -<span class="at">-upgrade</span> pip</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Per verificare:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb45"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>python <span class="at">-m</span> pip -<span class="at">-version</span></span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="installare-i-package-con-conda" class="level2">
+<h2 class="anchored" data-anchor-id="installare-i-package-con-conda">9. Installare i package con Conda</h2>
+<p>Con <strong>l’ambiente conda del corso attivo</strong> ⚠️:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb46"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>conda activate myenv</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>i package si installano con:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb47"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>conda install NOME_PACKAGE</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Per esempio:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb48"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>conda install numpy</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Per installare più package insieme:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb49"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>conda install numpy pandas matplotlib scikit<span class="at">-learn</span></span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Per <strong>installare l’intera suite di package del corso</strong>, dalla cartella <strong>padre</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb50"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>conda install <span class="at">-n</span> myenv <span class="at">-c</span> conda<span class="at">-forge</span> -<span class="at">-override-channels</span> -<span class="at">-file</span> requirements_TM_conda.txt</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Per questo specifico corso, c’è anche un package da installare con <strong>pip</strong>, <code>it_core_news_sm</code>, dopo il controllo a secco (<strong><em>–dry-run</em></strong>):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb51"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>python <span class="at">-m</span> pip install -<span class="at">-dry-run</span> <span class="at">-r</span> requirements_TM_pip.txt</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>e poi, se tutto va bene, lo si installa veramente:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb52"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>python <span class="at">-m</span> pip install <span class="at">-r</span> requirements_TM_pip.txt</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ovviamente, in <code>conda list</code> ora compare un package (<code>it-core-news-sm</code>) con <strong>channel=pypi</strong>.</p>
+<p>👉 <strong>L’installazione conda / pip è terminata</strong>. Vediamo ora alcuni <em>topics</em> dell’installazione più in dettaglio.</p>
+<section id="specificare-il-canale" class="level3">
+<h3 class="anchored" data-anchor-id="specificare-il-canale">Specificare il canale</h3>
+<p>Un <strong>canale Conda</strong> è il repository dal quale Conda scarica i package. Non è obbligatorio specificarlo nel comando conda di installazione.</p>
+<p>Tuttavia, un canale molto usato in ambito scientifico e Data Science è <strong>conda-forge</strong>.</p>
+<blockquote class="blockquote">
+<p><strong>Racomandazione.</strong></p>
+<p><u><strong>Usare <code>conda-forge</code> come unico canale ed escludere il canale <code>defaults</code></strong></u><strong> (tramite l’opzione <em>–override-channels</em>)</strong>; il canale <em>defaults</em>, tra l’altro, richiede la <u>licenza commerciale</u> per aziende con più di 200 dipendenti/collaboratori.</p>
+<p>Per il corso adotteremo quindi <code>conda-forge</code> come <strong>unica sorgente</strong> dei package, in modo da rendere l’ambiente più coerente e riproducibile ed evitare mescolanze tra package provenienti da canali diversi.</p>
+<p>La forma consigliata di installazione conda sarà quindi questa, con l’opzione <code>-c conda-forge</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb53"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>conda install <span class="at">-c</span> conda<span class="at">-forge</span> -<span class="at">-override-channels</span> NOME_PACKAGE</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>L’opzione <code>--override-channels</code> dice appunto a Conda di ignorare i canali già configurati nel sistema, compreso <code>defaults</code>, e di usare solo quelli indicati con <code>-c</code>.</p>
+<p><code>-c</code> è l’abbreviazione di <code>--channel</code></p>
+</blockquote>
+</section>
+<section id="installare-i-package-necessari-al-corso" class="level3">
+<h3 class="anchored" data-anchor-id="installare-i-package-necessari-al-corso">Installare i package necessari al corso</h3>
+<p>Per esempio:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb54"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>conda install <span class="at">-c</span> conda<span class="at">-forge</span> -<span class="at">-override-channels</span> numpy pandas matplotlib scikit<span class="at">-learn</span></span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Per controllare i package installati:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb55"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>conda list</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<blockquote class="blockquote">
+<p>👉 <code>conda list</code> riporta anche la sorgente del package.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>📌 Ecco il <strong>significato dell’output di <code>conda list</code></strong>:</p>
+<p><em>conda list</em> elenca i pacchetti installati in un ambiente conda, cioè una cartella isolata che contiene un interprete Python e un insieme di pacchetti.</p>
+<p>Le righe di intestazione. - <strong>packages in environment at <em>C:</em></strong>: dice quale ambiente stiamo guardando.</p>
+<p>Le quattro colonne.</p>
+<p><strong>Name</strong>: il nome del pacchetto. <strong>Version</strong>: la versione del software. <strong>Build</strong>: la specifica “confezione” di quella versione. Della stessa versione possono esistere più build, per versioni diverse di Python o ricompilate dopo una correzione. <strong>Channel</strong>: il canale, cioè il deposito online da cui il pacchetto è stato scaricato: - se la cella è vuota, il pacchetto viene dai canali predefiniti di Anaconda (<em>defaults</em>) - <em>conda-forge</em> è il canale gestito dalla comunità - <em>pypi</em> non è un canale conda: indica un pacchetto installato con <em>pip</em> da PyPI (Python Package Index, l’archivio dei pacchetti Python.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><u>Regola pratica</u>: <strong>esplicitare sempre l’ambiente con <code>-n &lt;env&gt;</code> (o <code>-p &lt;percorso&gt;</code>) anche quando è già attivo</strong>: evita la classe di errori «comando finito nell’ambiente sbagliato» dovuti a <strong>distrazione</strong> (l’ambiente conda attivo era stato modificato!!).</p>
+</blockquote>
+</section>
+<section id="pip-list" class="level3">
+<h3 class="anchored" data-anchor-id="pip-list">pip list</h3>
+<p>Se a questo punto facciamo:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb56"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>python <span class="at">-m</span> pip list</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>otteniamo comunque una lista di pacchetti! E’ un errore? No!</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb57"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>python <span class="at">-m</span> pip list</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>mostra tutti i pacchetti Python presenti nell’ambiente, non solo quelli installati da pip. Le librerie installate da conda portano con sé i metadati standard che pip sa leggere, quindi compaiono anche lì.<br> Per sapere chi ha installato cosa:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb58"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>conda list <span class="kw">|</span> <span class="kw">findstr</span> pypi</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>elenca solo i pacchetti installati con pip. Se non stampa nulla, pip non ha installato niente.<br></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb59"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>python <span class="at">-m</span> pip list <span class="at">-v</span></span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>aggiunge le colonne <em>Installer</em> (<code>conda</code> o <code>pip</code>) e <em>Location</em>, che deve essere sempre la cartella dell’ambiente.</p>
+</section>
+<section id="strategia-di-installazione" class="level3">
+<h3 class="anchored" data-anchor-id="strategia-di-installazione">Strategia di installazione</h3>
+<p>Privilegiare sempre <code>conda install</code>; ricorrere a <code>python -m pip install</code> solo per i pacchetti non disponibili tramite <strong>Conda</strong>.</p>
+<p>Ci sono però <strong>due importanti accortezze</strong>.</p>
+<p><strong>1. Rispettare l’ordine temporale</strong></p>
+<p>Conviene installare <strong>prima tutto il possibile con Conda</strong> e, solo in un secondo momento, <strong>ciò che resta con pip</strong>.</p>
+<p>Il motivo è che Conda, quando risolve l’ambiente, non gestisce in modo completo i pacchetti già installati da pip. Se si installa qualcosa con pip e poi si esegue un successivo:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb60"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>conda install ...</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Conda può modificare o sostituire file e dipendenze su cui il pacchetto installato con pip faceva affidamento, rendendo incoerente o non funzionante l’installazione precedente.</p>
+<p>Per questo motivo è consigliabile lasciare <strong>pip “in coda”</strong>, quindi:</p>
+<pre class="text"><code>1. conda install ...
+2. conda install ...
+3. conda install ...
+4. python -m pip install ...   ← solo i package che mancano (non installabili con conda)</code></pre>
+<p><strong>2. Non alternare Conda e pip sullo stesso pacchetto</strong></p>
+<p>Una volta che un pacchetto è stato installato con pip, gli aggiornamenti di <strong>quel pacchetto</strong> devono essere eseguiti <strong>sempre con pip, non con Conda, e viceversa</strong>.</p>
+<p>Per esempio, se è un pacchetto stato installato con:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb62"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>python <span class="at">-m</span> pip install nome<span class="at">-pacchetto</span></span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>gli aggiornamenti successivi dovrebbero essere eseguiti con:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb63"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>python <span class="at">-m</span> pip install -<span class="at">-upgrade</span> nome<span class="at">-pacchetto</span></span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>e non con:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb64"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>conda update nome<span class="at">-pacchetto</span></span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>👉 Mescolare i due gestori sullo stesso package è una delle cause più comuni di ambienti Python incoerenti.</p>
+</section>
+<section id="forma-consigliata-per-pip" class="level3">
+<h3 class="anchored" data-anchor-id="forma-consigliata-per-pip">Forma consigliata per pip</h3>
+<p>In ogni caso, preferire sempre:</p>
+<blockquote class="blockquote">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb65"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>python <span class="at">-m</span> pip install NOME_PACKAGE</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>alla forma:</p>
+</blockquote>
+<blockquote class="blockquote">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb66"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>pip install NOME_PACKAGE</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+</blockquote>
+<p>Il significato è: - <code>python</code> richiama l’interprete Python attualmente attivo; - <code>-m</code> significa <strong>esegui il modulo pip del Python attivo</strong> → così è l’interprete Python attivo a eseguire il <strong>PROPRIO</strong> modulo <code>pip</code>. - <code>pip</code>, come noto, è un modulo che gestisce l’installazione dei package; - <code>install NOME_PACKAGE</code> chiede a pip di installare il package indicato.</p>
+<p>Cioè, in sintesi, <code>python -m pip install pandas</code> significa: usa <strong>questo Python attivo</strong> per eseguire <strong>il suo pip</strong> e installare <code>pandas</code>.</p>
+<p>Questa forma è preferibile al semplice e più veloce <code>pip install</code> perché riduce il rischio di usare accidentalmente un <code>pip</code> appartenente a un’altra installazione di Python.</p>
+<p>È quindi particolarmente utile quando sul PC sono presenti: - più versioni di Python; - più ambienti Conda; - Python installato anche fuori da Miniconda.</p>
+</section>
+<section id="comandi-pip-da-evitare" class="level3">
+<h3 class="anchored" data-anchor-id="comandi-pip-da-evitare">Comandi <code>pip</code> da evitare</h3>
+<p><strong>⛔ Evitare sempre, come detto:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb67"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>pip install NOME_PACKAGE</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Il problema è semplice: <strong>quale <code>pip</code> viene eseguito?</strong></p>
+<p>Se sul PC sono presenti più versioni di Python o più ambienti, il comando <code>pip</code> trovato nel <code>PATH</code> potrebbe non essere quello associato all’interprete Python dell’ambiente attivo.</p>
+<p><strong>⛔ Evitare (quasi sempre):</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb68"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>python <span class="at">-m</span> pip install -<span class="at">-user</span> NOME_PACKAGE</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>L’opzione <code>--user</code> installa il package nello <strong>user-site</strong>, cioè in una cartella personale dell’utente Windows, <strong>non nell’ambiente Conda del corso</strong>.</p>
+<p>Su Windows il percorso dello <em>user-site</em> è tipicamente simile a:</p>
+<pre class="text"><code>%APPDATA%\Python\PythonXX\site-packages</code></pre>
+<p>dove: *%APPDATA% = C:.</p>
+<p>Sul mio PC lo <em>user-site</em> è qui:<br> <img src="my-user-sites.png" class="img-fluid"></p>
+<p>Quindi:</p>
+<pre class="text"><code>ambiente myenv
+         │
+         ├── package dell'ambiente
+         │
+         └── NON contiene i package installati con --user
+
+ user-site di Windows
+         │
+         └── package installati con --user</code></pre>
+<p>Con <code>venv</code> (il gestore di ambienti virtuali nativo di Python, alternativo a conda), il comando <code>pip install --user</code> viene generalmente rifiutato perché lo <em>user-site</em> non è visibile nell’ambiente. Con un ambiente Conda, invece, questo comando <strong>può installare il package fuori dall’ambiente senza che l’errore sia evidente</strong>: si può quindi credere di avere installato il package nel proprio ambiente quando in realtà si trova nello <em>user-site</em>.</p>
+<p>L’opzione <code>--user</code> di pip (quando si deve usare pip) è quindi <strong>lo strumento sbagliato</strong>, perché non isola l’ambiente.</p>
+<p>Il meccanismo dello <em>user-site</em> e il modo per neutralizzarne l’uso sono spiegati nella sezione dedicata a: <code>set PYTHONNOUSERSITE=1</code>.</p>
+<p><strong>Perché abbiamo prima detto “quasi sempre” e non “sempre”?</strong></p>
+<p><code>--user</code> ha alcuni usi legittimi fuori dal perimetro di questa guida. Il caso classico è l’uso del <strong>Python di sistema senza permessi di amministratore</strong>, quando si vuole installare un package soltanto per l’utente corrente.</p>
+<p>Un altro caso riguarda alcuni tool a riga di comando che si desidera rendere disponibili all’utente indipendentemente dall’ambiente; per questo scenario oggi è spesso preferibile usare strumenti dedicati come <code>pipx</code>.</p>
+<p>Nel nostro corso, che utilizza sempre un ambiente Conda dedicato, la <strong>regola pratica del pip</strong> è così riassumibile:</p>
+<pre class="text"><code>NON installare package con pip (se non per i package NON installabili con conda, ed alla fine)
+se necessario installare con pip, NON usare 'pip install ...' 
+usare, solo quando necessario: 'python -m pip install ...'
+comunque, in questi casi, NON usare 'python -m pip install --user ...'
+in seguito, se si era dovuto installare un package con pip, fare il suo eventuale upgrade solo con pip stesso (e mai con conda)</code></pre>
+</section>
+<section id="riavvio-del-kernel" class="level3">
+<h3 class="anchored" data-anchor-id="riavvio-del-kernel">Riavvio del kernel</h3>
+<p>Dopo aver installato un package da terminale, se VS Code o altra IDE erano già aperti, di norma è necessario riavviare il kernel di VS Code (o altra IDE) affinché il modulo appena installato venga <strong>riconosciuto correttamente</strong> dal codice in esecuzione.</p>
+<p>Se non si riavvia il kernel, il tentativo di importare il pacchetto (es. <code>import nome_pacchetto</code>) produrrà quasi sicuramente un errore di tipo <code>ModuleNotFoundError</code>, poiché il processo Python attualmente attivo <u>ha già caricato in memoria l’elenco dei moduli disponibili al momento del suo avvio</u>.</p>
+<p>💡 L’alternativa per non riavviare il kernel: <strong>i comandi “magici”</strong><br> Se vsi vuole evitare di riavviare il kernel e perdere le variabili caricate in memoria, si può installare il pacchetto <u>direttamente all’interno di una cella del notebook</u> usando i “comandi magici” di Jupyter. In questo modo il kernel si aggiorna automaticamente senza bisogno di riavvii:<br></p>
+<p>Per <strong>pip</strong>: - <code>%pip install &lt;nome_pacchetto&gt;</code><br></p>
+<p>Per <strong>conda</strong>: - <code>%conda install &lt;nome_pacchetto&gt;</code> <br></p>
+<p>🛠️ Come <strong>riavviare rapidamente il kernel in VS Code</strong><br> Se si è già installato il pacchetto dal terminale esterno o integrato (a VS Code), si può riavviare il kernel in due modi rapidi: 1. Cliccare sul pulsante <em>Restart</em> (l’icona a forma di freccia circolare) nella barra degli strumenti in alto all’interno del notebook di VS Code. 2. In alternativa, premere <em>Ctrl + Shift + P (o Cmd + Shift + P su Mac)</em>, digitare “Jupyter: Restart Kernel” e premere <em>Invio</em>.</p>
+<p>Al contrario, se Visual Studio Code non era aperto al momento della installazione del package da terminale, è sufficiente aprire VSC e poi avviare il kernel del notebook: il nuovo ambiente <strong>viene caricato da zero</strong>. In questo caso, Python rileva immediatamente tutti i moduli aggiornati e si possono importare subito in VSC senza dover compiere alcuna operazione di riavvio.</p>
+</section>
+<section id="installazioni-da-ide" class="level3">
+<h3 class="anchored" data-anchor-id="installazioni-da-ide">Installazioni da IDE??</h3>
+<p>📌 <strong>Importante: non installare package dalle celle della IDE con <code>!pip</code> o <code>!conda</code></strong></p>
+<p>Evitare di eseguire nelle celle della IDE comandi come:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install nome_pacchetto</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>oppure:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb73"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>conda install nome_pacchetto</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Il prefisso <code>!</code> fa eseguire il comando attraverso una <strong>shell separata</strong>. In quel contesto non è garantito che il <code>pip</code> o il <code>conda</code> individuato corrisponda esattamente all’ambiente Python associato al <strong>kernel</strong> del notebook.</p>
+<p>Il rischio è quindi di installare il package in un ambiente diverso da quello effettivamente usato dal notebook, creando incoerenze o problemi nel kernel.</p>
+<p><strong>Regola consigliata per il corso:</strong> installare sempre i package da <strong>Windows Terminal</strong>, dopo avere attivato l’ambiente Conda, oppure, se il package non è disponibile con conda, con il pip.</p>
+</section>
+</section>
+<section id="interprete-python-e-kernel-jupyter" class="level2">
+<h2 class="anchored" data-anchor-id="interprete-python-e-kernel-jupyter">10. Interprete Python e kernel Jupyter</h2>
+<p>Poiché durante il corso lavoreremo esclusivamente con <strong>notebook Jupyter (<code>.ipynb</code>)</strong>, è importante distinguere due concetti: <strong>interprete Python</strong> e <strong>kernel Jupyter</strong>.</p>
+<section id="linterprete-python" class="level3">
+<h3 class="anchored" data-anchor-id="linterprete-python">L’interprete Python</h3>
+<p>L’<strong>interprete</strong> è il programma che esegue il linguaggio Python.</p>
+<p>Nel nostro ambiente Conda, <code>myenv</code>, l’interprete è il file <code>python.exe</code> installato dentro quell’ambiente.<br> In forma semplificata:</p>
+<pre class="text"><code>Ambiente Conda: myenv
+        │
+        └── python.exe
+             ↑
+        interprete Python</code></pre>
+<p>Quando creiamo l’ambiente con:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb75"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>conda create <span class="at">-n</span> myenv python=3.12</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>stiamo creando un ambiente virtuale (conda) che contiene, tra le altre cose, uno specifico <strong>interprete Python 3.12</strong>.</p>
+<p>L’interprete stabilisce:</p>
+<blockquote class="blockquote">
+<p><strong>quale Python stiamo utilizzando, quale pip, e quali package appartengono a quell’ambiente.</strong></p>
+</blockquote>
+<p>👉 Per <strong>eseguire un file python</strong> (suffisso <em>.py</em>) in VS Code è necessario <u>scegliere un’interprete</u> (e non un kernel),in questo modo:</p>
+<pre class="text"><code>ctrl + shift + P
+   ↓
+Python Select Interpreter
+   ↓
+myenv (X.YY.ZZ)</code></pre>
+<hr>
+</section>
+<section id="il-kernel-jupyter" class="level3">
+<h3 class="anchored" data-anchor-id="il-kernel-jupyter">Il kernel Jupyter</h3>
+<p>Un notebook Jupyter non esegue direttamente le celle semplicemente “attraverso Python”: utilizza un <strong>kernel</strong>.</p>
+<p>Il <strong>kernel</strong> è un processo attivo che:</p>
+<ul>
+<li>usa un determinato interprete Python;</li>
+<li>riceve il codice delle celle dal notebook;</li>
+<li>lo esegue;</li>
+<li>restituisce i risultati a VS Code;</li>
+<li><strong>mantiene in memoria lo stato della sessione</strong>.</li>
+</ul>
+<p>Per esempio, se in una cella eseguiamo:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb77"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">100</span></span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>e successivamente, in un’altra cella:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb78"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>otteniamo:</p>
+<pre class="text"><code>100</code></pre>
+<p>perché il <strong>kernel è rimasto attivo e conserva <code>x</code> in memoria</strong>.</p>
+<p>Se eseguiamo:</p>
+<pre class="text"><code>Restart Kernel</code></pre>
+<p>la <strong>memoria del kernel viene azzerata e le variabili create in precedenza non esistono più</strong>.</p>
+<p>La differenza essenziale è quindi:</p>
+<pre class="text"><code>INTERPRETE = quale installazione di Python viene utilizzata
+
+KERNEL     = la sessione attiva che usa quell'interprete
+             per eseguire le celle del notebook</code></pre>
+<p>👉 La relazione completa è dunque:</p>
+<pre class="text"><code>Ambiente Conda
+myenv
+      │
+      ├── Python 3.12  (per eseguire file .py)
+      │      │
+      │      └── INTERPRETE
+      │              |
+      |              |
+      |              ▼
+      |        linee di codice 
+      |            eseguite
+      |
+      └── ipykernel
+             │
+             ▼
+        KERNEL JUPYTER
+             │
+             ▼
+       notebook jupyter (per eseguire file .ipynb)
+             │
+             ▼
+        celle di codice
+           eseguite</code></pre>
+<hr>
+</section>
+<section id="installare-ipykernel" class="level3">
+<h3 class="anchored" data-anchor-id="installare-ipykernel">Installare <code>ipykernel</code></h3>
+<p>Perché l’ambiente Conda possa essere utilizzato come kernel di un notebook Jupyter, <strong>installiamo il package <code>ipykernel</code></strong></p>
+<p>Prima, come sempre, dobbiamo attivare l’ambiente <strong>da terminale</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb83"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a>conda activate myenv</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>e quindi installare:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb84"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a>conda install ipykernel</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ancor meglio è forzare esplicitamente l’uso del canale <em>conda-forge</em>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb85"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>conda install <span class="at">-c</span> conda<span class="at">-forge</span> -<span class="at">-override-channels</span> ipykernel</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Come detto, dunque, <code>ipykernel</code> è il <strong>componente che collega l’interprete Python dell’ambiente alla modalità di esecuzione richiesta dai notebook Jupyter</strong>.</p>
+<p>In termini semplici:</p>
+<pre class="text"><code>VS Code / Jupyter  (interfaccia: celle, output)
+        │   ▲
+        │   │   protocollo Jupyter (messaggi: "esegui questo codice", "ecco il risultato")
+        ▼   │
+┌─────────────────────────────────────┐
+│  kernel = processo python.exe       │
+│           che esegue ipykernel      │
+│  (Python + pacchetti dell'ambiente) │
+└─────────────────────────────────────┘</code></pre>
+<hr>
+<blockquote class="blockquote">
+<p>👉 Con altri strumenti, come <strong>Jupyter Notebook o JupyterLab</strong>, se essi vengono avviati da un ambiente diverso da <code>myenv</code>, è necessario anche <strong>registrare il kernel</strong>, cioè indicare a Jupyter quale interprete Python avviare. [Diversamente, se l’ambiente di avvio è <code>myenv</code>, il kernel predefinito è già quello dell’ambiente, e la registrazione non serve].</p>
+<p>La <u>sequenza completa e corretta</u> per <strong>installare e registrare il kernel</strong> è dunque:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb87"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a>conda activate myenv</span>
+<span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a>conda install <span class="at">-c</span> conda<span class="at">-forge</span> -<span class="at">-override-channels</span> ipykernel</span>
+<span id="cb87-3"><a href="#cb87-3" aria-hidden="true" tabindex="-1"></a>python <span class="at">-m</span> ipykernel install -<span class="at">-user</span> -<span class="at">-name</span> myenv -<span class="at">-display-name</span> <span class="st">"Python (myenv)"</span></span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>👉 In VS Code, invece, la registrazione (terzo comando) non è necessaria: le estensioni <strong>Python</strong> e <strong>Jupyter</strong> rilevano gli ambienti Conda disponibili e permettono di selezionarli direttamente. Resta necessaria l’installazione di <code>ipykernel</code> (secondo comando); se manca, VS Code propone di installarlo al primo avvio di una cella. In questo caso, comunque, conviene sempre installarlo da terminale, anziché delegare l’operazione a VS Code: in questo modo scegliamo noi il canale da cui scaricarlo (<em>conda-forge</em>) e, se qualcosa va storto, <strong>vediamo per intero i messaggi di errore</strong>.</p>
+</blockquote>
+<hr>
+</section>
+</section>
+<section id="avviare-visual-studio-code-dallambiente-conda" class="level2">
+<h2 class="anchored" data-anchor-id="avviare-visual-studio-code-dallambiente-conda">11. Avviare Visual Studio Code dall’ambiente Conda</h2>
+<p>Questo è il flusso consigliato.</p>
+<p>Prima attivare l’ambiente:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb88"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a>conda activate myenv</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Poi lanciare Visual Studio Code:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb89"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a>code</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Oppure, se ci si trova già nella cartella del progetto:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb90"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a>code .</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Il punto <code>.</code> significa:</p>
+<blockquote class="blockquote">
+<p>apri in VS Code la cartella corrente.</p>
+</blockquote>
+<p>Esempio:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb91"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> C:\CorsoPython</span>
+<span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a>conda activate myenv</span>
+<span id="cb91-3"><a href="#cb91-3" aria-hidden="true" tabindex="-1"></a>code .</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>In questo modo VS Code viene aperto <strong>direttamente sulla cartella corrente (grazie a code .)</strong>, quella del progetto, ed <strong>eredita le variabili di ambiente Windows dell’ambiente attivo</strong>, cioè le variabili di ambiente Windows (in primis, Path) al momento del lancio (<strong>l’eredità anche senza .</strong>). È il meccanismo normale in Windows per cui un processo <em>figlio</em>, cioè avviato da un altro detto <em>padre</em>, parte con le variabili del padre.</p>
+<p>Note: - l’ereditarietà delle variabili di ambiente Windows dal prompt <strong>vale solo se VS Code non è già in esecuzione</strong>. Se un’istanza (cioè una copia di VS Code in esecuzione) è già aperta, <code>code</code> non avvia un nuovo VS Code: passa la richiesta a quell’istanza, che apre una nuova finestra. <strong>Il padre della nuova finestra è quindi il VS Code già aperto, non il nostro prompt!</strong>. La finestra riceve perciò le variabili di quell’istanza e non quelle appena modificate da <code>conda activate</code>. Se l’istanza era stata avviata dal menu <em>Start</em>, nel suo <em>Path</em> le cartelle di <em>myenv</em> non ci sono. È un <strong>tranello frequente</strong>, che spiega molti casi di “ho attivato l’env ma VS Code non lo vede”. La <u>regola pratica</u> è dunque semplice: <strong>chiudiamo tutte le finestre di VS Code prima di lanciare <code>code</code></strong>. - 👉 in ogni caso, anche quando le variabili sono ereditate correttamente, questa modalità (di attivazione di VS Code con <code>code</code> da terminale) non garantisce automaticamente che il notebook <em>.ipynb</em> userà <em>myenv</em> come kernel (vedi i passi successivi): tuttavia, riduce le ambiguità iniziali e rende più prevedibile il rilevamento degli ambienti Python. - ⚠️ dopo l’apertura, sarà comunque <strong>necessario verificare il kernel selezionato nel notebook</strong>, in alto a destra. <br> <br></p>
+<blockquote class="blockquote">
+<p>🛑 Esiste una <strong>scorciatoia di navigazione nell’albero della cartelle di Windows</strong>: navigare da Explorer è molto più veloce che da terminale!<br></p>
+</blockquote>
+<blockquote class="blockquote">
+<p>E’ sufficiente infatti, da terminale, eseguire (una volta sola, in modo persistente per le successive sessioni di terminale):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb92"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a>conda init cmd.exe</span>
+<span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a># oppure</span>
+<span id="cb92-3"><a href="#cb92-3" aria-hidden="true" tabindex="-1"></a>conda init powershell</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Se si ottiene “No action taken” significa che l’inizializzazione era già stata fatta.</p>
+<p>A questo, punto dobbiamo chiudere e riaprire il terminale, <code>conda init</code> infatti modifica impostazioni che il terminale legge solo all’avvio.</p>
+<p>Si aprirà un terminale senza il prefisso base (tipico di conda), ma sarà sufficiente eseguire:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb93"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a>conda -<span class="at">-version</span></span>
+<span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a>conda activate <span class="kw">&lt;</span>myenv<span class="kw">&gt;</span></span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>👉 A questo punto il terminale è <strong>equivalente ad un miniconda prompt</strong>.</p>
+<p>A questo punto la scorciatoia è attiva e possiamo dunque utilizzarla, in questo modo: - navigare nell’explorer di Windows sino alla cartella desiderata (es. <em>myenv</em>) e selezionare con il mouse il percorso in alto nella barra - scrivere sulla barra <em>cmd</em> o <em>powershell</em> - premere invio e si aprirà un terminale (del tipo scelto) <strong>impostato su quel percorso</strong> (senza doverci navigare dal terminale!!).</p>
+</blockquote>
+<hr>
+</section>
+<section id="installare-le-estensioni-python-e-jupyter-in-vs-code" class="level2">
+<h2 class="anchored" data-anchor-id="installare-le-estensioni-python-e-jupyter-in-vs-code">12. Installare le estensioni Python e Jupyter in VS Code</h2>
+<p>⚠️ Si installano <strong>una volta sola per ogni installazione di VS Code</strong>. La creazione o la cancellazione degli ambienti conda non le tocca.</p>
+<p>⚠️ VS CODE può <strong>proporre automaticamente le estensioni necessarie Python è Jupyter</strong> quando si apre per la prima volta un file <em>.ipynb</em>; tuttavia, per ottenere una configurazione stabile e prevedibile, è consigliabile installarle esplicitamente.</p>
+<p>In Visual Studio Code aprire <strong>Extensions</strong> dalla barra laterale sinistra oppure usare:</p>
+<pre class="text"><code>Ctrl + Shift + X</code></pre>
+<p>Installare le seguenti estensioni, tutte pubblicate da <strong>Microsoft</strong>.</p>
+<section id="pylance" class="level3">
+<h3 class="anchored" data-anchor-id="pylance">1. Pylance</h3>
+<p>Fornisce supporto avanzato alla scrittura del codice Python:</p>
+<ul>
+<li>completamento automatico;</li>
+<li>analisi statica;</li>
+<li>suggerimenti sui tipi;</li>
+<li>navigazione nel codice.</li>
+</ul>
+</section>
+<section id="python" class="level3">
+<h3 class="anchored" data-anchor-id="python">2. Python</h3>
+<p>È l’estensione principale per l’integrazione tra VS Code e Python.</p>
+<p>Serve, tra le altre cose, per:</p>
+<ul>
+<li>individuare gli interpreti Python;</li>
+<li>lavorare con gli ambienti Conda;</li>
+<li>integrare gli strumenti Python in VS Code.</li>
+</ul>
+</section>
+<section id="python-debugger" class="level3">
+<h3 class="anchored" data-anchor-id="python-debugger">3. Python Debugger</h3>
+<p>Aggiunge il supporto al debugging Python:</p>
+<ul>
+<li>breakpoint;</li>
+<li>esecuzione passo-passo;</li>
+<li>ispezione delle variabili;</li>
+<li>analisi dello stack delle chiamate.</li>
+</ul>
+</section>
+<section id="python-environments" class="level3">
+<h3 class="anchored" data-anchor-id="python-environments">4. Python Environments</h3>
+<p>Facilita la gestione degli ambienti Python e Conda direttamente da VS Code.</p>
+<p>Nel nostro caso l’ambiente da utilizzare sarà:</p>
+<pre class="text"><code>myenv</code></pre>
+</section>
+<section id="jupyter" class="level3">
+<h3 class="anchored" data-anchor-id="jupyter">5. Jupyter</h3>
+<p>Poiché durante il corso lavoreremo <strong>solo con notebook <code>.ipynb</code></strong>, questa estensione è indispensabile.</p>
+<p>Permette di:</p>
+<ul>
+<li>aprire e modificare notebook Jupyter;</li>
+<li>eseguire le celle;</li>
+<li>scegliere il kernel;</li>
+<li>visualizzare output, grafici e tabelle;</li>
+<li>gestire la sessione del notebook.</li>
+</ul>
+</section>
+<section id="stampare-un-file-markdown-aperto-in-vs-code" class="level3">
+<h3 class="anchored" data-anchor-id="stampare-un-file-markdown-aperto-in-vs-code">Stampare un file Markdown aperto in VS Code</h3>
+<p>VS Code permette di visualizzare direttamente la <strong>preview renderizzata</strong> di un file Markdown <code>.md</code>.</p>
+<p>Per aprirla:</p>
+<pre class="text"><code>Ctrl + Shift + V</code></pre>
+<p>oppure:</p>
+<pre class="text"><code>Ctrl + Shift + P
+→ Markdown: Open Preview</code></pre>
+<p>Per la sola visualizzazione non serve installare alcuna estensione aggiuntiva.</p>
+<p>Per <strong>stampare</strong> un file Markdown, invece, il flusso più pratico è:</p>
+<pre class="text"><code>file .md
+   ↓
+Markdown Preview
+   ↓
+esportazione in PDF
+   ↓
+stampa del PDF</code></pre>
+<p>Se si desidera fare tutto da VS Code, è possibile installare un’estensione dedicata, ad esempio:</p>
+<pre class="text"><code>Markdown PDF</code></pre>
+<p>che aggiunge comandi di esportazione, ad esempio:</p>
+<pre class="text"><code>Markdown PDF: Export (pdf)</code></pre>
+<p>Una volta creato il PDF, lo si può aprire e stampare normalmente.</p>
+<blockquote class="blockquote">
+<p><strong>In sintesi</strong></p>
+<ul>
+<li>per leggere il Markdown: <code>Ctrl + Shift + V</code></li>
+<li>per stamparlo: esportarlo prima in PDF e poi stampare il PDF</li>
+</ul>
+</blockquote>
+<hr>
+</section>
+<section id="le-estensioni-da-installare" class="level3">
+<h3 class="anchored" data-anchor-id="le-estensioni-da-installare">Le estensioni da installare</h3>
+<pre class="text"><code>Pylance
+Python
+Python Debugger
+Python Environments
+Jupyter</code></pre>
+<p>Tutte devono avere come publisher:</p>
+<pre class="text"><code>Microsoft</code></pre>
+<blockquote class="blockquote">
+<p>L’estensione <strong>Markdown PDF</strong> è opzionale: serve soltanto se si desidera esportare e stampare comodamente i file Markdown direttamente da VS Code.</p>
+</blockquote>
+</section>
+</section>
+<section id="selezionare-il-kernel-in-vs-code-con-file-.ipynb" class="level2">
+<h2 class="anchored" data-anchor-id="selezionare-il-kernel-in-vs-code-con-file-.ipynb">13. Selezionare il kernel in VS Code (con file .ipynb)</h2>
+<p>Aprire il notebook <code>.ipynb</code>.</p>
+<p>In alto a destra in genere compare:</p>
+<pre class="text"><code>Select Kernel</code></pre>
+<p>ed occorre allora fare clic su di esso.</p>
+<blockquote class="blockquote">
+<p>👉 Non sempre compare <code>Select Kernel</code>: a volte VS Code seleziona il kernel automaticamente, leggendo i <strong>metadati</strong> del notebook (le informazioni salvate nel file <code>.ipynb</code> insieme alle celle, tra cui il <strong>nome del kernel</strong> usato l’ultima volta) oppure ricordando la scelta fatta in precedenza. In questo caso, in alto a destra <strong>compare direttamente il nome del kernel</strong>.<br> Prima di iniziare ad eseguire le celle del notebook conviene comunque <strong>controllare quel nome</strong>: <u>se il notebook proviene da un altro computer</u>, <strong>i metadati si riferiscono all’ambiente di chi l’ha creato</strong>, e <u>VS Code potrebbe dunque proporre un ambiente diverso</u> da quello che vogliamo usare. Per cambiarlo basta fare clic sul nome e selezionare <code>myenv</code>.</p>
+</blockquote>
+<p>Tornando al caso più frequente, dopo il click su <code>Select kernel</code>, a seconda dei casi VS Code mostra <strong>uno dei due elenchi seguenti</strong>.</p>
+<p><strong>Caso 1 – VS Code suggerisce già un ambiente.</strong> In cima all’elenco compare <strong>il kernel proposto</strong>, ad esempio:</p>
+<pre class="text"><code>myenv (Python 3.11.11)   ~\miniconda3\envs\myenv\python.exe
+Select Another Kernel...</code></pre>
+<p>Se nome e percorso corrispondono all’ambiente che vogliamo usare, basta <u>selezionare la prima riga</u>. Altrimenti scegliere <strong>Select Another Kernel…</strong>, compare una lista e ci si allaccia al caso 2.</p>
+<p><strong>Caso 2 – VS Code non ha suggerimenti.</strong><br> VS Code mostra una finestra con diverse sorgenti possibili del kernel:</p>
+<pre class="text"><code>Python Environments...
+Jupyter Kernel...
+Existing Jupyter Server...</code></pre>
+<p>Nel nostro caso, con <strong>Miniconda + ambiente Conda locale</strong>, la scelta corretta è:</p>
+<pre class="text"><code>Python Environments...</code></pre>
+<p>Questa voce <strong>mostra gli ambienti Python disponibili sul computer, compresi gli ambienti Conda</strong>.</p>
+<p>Selezionare quindi l’ambiente del corso, ad esempio:</p>
+<pre class="text"><code>Python 3.12 (myenv)</code></pre>
+<p>Il flusso generale è dunque:</p>
+<pre class="text"><code>Cosa facciamo noi (in VS Code)
+
+Select Kernel
+     ↓
+Python Environments...
+     ↓
+myenv
+
+
+Cosa fa VS Code (dietro le quinte)
+
+all'esecuzione della prima cella avvia il kernel:
+python.exe dell'ambiente myenv + ipykernel
+     ↓
+per ogni cella eseguita:
+invia il codice al kernel  ⇄  riceve output, risultati ed errori
+     ↓
+mostra i risultati sotto la cella</code></pre>
+<hr>
+<blockquote class="blockquote">
+<p>📌 In ogni caso, in qualsiasi dei due casi, prima di eseguire le celle del notebook conviene verificare il <strong>percorso</strong> mostrato accanto al nome del kernel: è il percorso del <code>python.exe</code> dell’ambiente (<code>~</code> indica la cartella dell’utente) e <u>indica senza ambiguità quale ambiente verrà usato</u>.</p>
+</blockquote>
+<hr>
+<section id="significato-delle-tre-opzioni" class="level4">
+<h4 class="anchored" data-anchor-id="significato-delle-tre-opzioni">Significato delle tre opzioni</h4>
+<p>Vediamo ora più in dettaglio il significato delle tre opzioni del caso 2.</p>
+<p><strong>Python Environments…</strong></p>
+<p>Permette di scegliere uno degli ambienti Python installati sul computer: - ambienti Conda; - ambienti <code>venv</code>; - altre installazioni Python locali.</p>
+<p>È <strong>l’opzione da utilizzare nel corso</strong>.</p>
+<p>👉 In VS Code, quando si sceglie <em>Python Environments…</em>, <strong>il kernel viene costruito a partire da uno specifico interprete Python appartenente a un ambiente Conda o virtuale</strong>.</p>
+<hr>
+<p><strong>Jupyter Kernel…</strong></p>
+<p>Permette di scegliere un <strong>kernel Jupyter già registrato</strong> nel sistema tramite una <em>kernelspec</em>.</p>
+<p>Per esempio, un kernel può essere stato stato registrato manualmente con:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb109"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a>python <span class="at">-m</span> ipykernel install -<span class="at">-user</span> -<span class="at">-name</span> myenv</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Nel nostro approccio questo passaggio <strong>non è normalmente necessario</strong>, perché VS Code può usare direttamente l’ambiente Conda tramite:</p>
+<pre class="text"><code>Python Environments...</code></pre>
+<hr>
+<p><strong>Existing Jupyter Server…</strong></p>
+<p>Permette di collegare VS Code a un <strong>Jupyter Server già esistente</strong>, locale o remoto.</p>
+<p>È utile, ad esempio, quando il notebook viene eseguito su:</p>
+<ul>
+<li>server aziendali;</li>
+<li>macchine remote;</li>
+<li>infrastrutture GPU;</li>
+<li>JupyterHub;</li>
+<li>server di laboratorio.</li>
+</ul>
+<p>Nel nostro scenario locale su Windows <strong>non è necessario</strong>.</p>
+<hr>
+<p>In sintesi:</p>
+<pre class="text"><code>Per il corso:
+
+Select Kernel
+      ↓
+Python Environments...
+      ↓
+myenv</code></pre>
+<p>A quel punto il notebook utilizzerà:</p>
+<pre class="text"><code>myenv
+      │
+      ├── interprete Python 3.12
+      ├── ipykernel
+      └── package installati nell'ambiente</code></pre>
+<p>📌 Tutte le celle del notebook saranno quindi eseguite dal <strong>kernel associato all’ambiente <code>myenv</code></strong>.</p>
+</section>
+</section>
+<section id="flusso-di-lavoro-consigliato-durante-il-corso" class="level2">
+<h2 class="anchored" data-anchor-id="flusso-di-lavoro-consigliato-durante-il-corso">14. Flusso di lavoro consigliato durante il corso</h2>
+<p>Ogni volta che si inizia una sessione:</p>
+<pre class="text"><code>1. Aprire Windows Terminal
+          ↓
+2. Selezionare Prompt dei comandi
+          ↓
+3. Attivare l'ambiente Conda
+          ↓
+4. Impostare PYTHONNOUSERSITE
+          ↓
+5. Spostarsi nella cartella del progetto
+          ↓
+6. Avviare VS Code
+          ↓
+7. Aprire il notebook e selezionare il kernel myenv</code></pre>
+<p>Comandi:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb114"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a>conda activate myenv</span>
+<span id="cb114-2"><a href="#cb114-2" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> <span class="va">PYTHONNOUSERSITE</span>=1</span>
+<span id="cb114-3"><a href="#cb114-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> C:\CorsoPython</span>
+<span id="cb114-4"><a href="#cb114-4" aria-hidden="true" tabindex="-1"></a>code .</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Schema:</p>
+<pre class="text"><code>Windows Terminal
+      │
+      ▼
+Prompt dei comandi (cmd)
+      │
+      │  conda activate myenv
+      ▼
+(myenv)
+      │
+      │  cd C:\CorsoPython
+      ▼
+Cartella del progetto
+      │
+      │  code .
+      ▼
+Visual Studio Code
+      │
+      ▼
+Notebook .ipynb
+      │
+      ▼
+Kernel: myenv</code></pre>
+<hr>
+</section>
+<section id="terminare-la-sessione" class="level2">
+<h2 class="anchored" data-anchor-id="terminare-la-sessione">15. Terminare la sessione</h2>
+<p>Quando si è terminato di lavorare, è possibile disattivare l’ambiente con:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb116"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a>conda deactivate</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Il prefisso:</p>
+<pre class="text"><code>(myenv)</code></pre>
+<p>scomparirà dal prompt.</p>
+<hr>
+</section>
+</section>
+<section id="problemi-comuni" class="level1">
+<h1>Problemi comuni</h1>
+<section id="conda-non-viene-riconosciuto" class="level2">
+<h2 class="anchored" data-anchor-id="conda-non-viene-riconosciuto"><code>conda</code> non viene riconosciuto</h2>
+<p>Se compare un messaggio simile a:</p>
+<pre class="text"><code>'conda' non è riconosciuto come comando interno o esterno...</code></pre>
+<p>aprire <strong>Miniconda Prompt</strong> dal menu Start ed eseguire:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb119"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a>conda init cmd.exe</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Chiudere completamente Windows Terminal e riaprirlo. [<code>conda init</code> infatti modifica impostazioni che il terminale legge solo all’avvio.]</p>
+<hr>
+</section>
+<section id="code-non-viene-riconosciuto" class="level2">
+<h2 class="anchored" data-anchor-id="code-non-viene-riconosciuto"><code>code</code> non viene riconosciuto</h2>
+<p>Se compare:</p>
+<pre class="text"><code>'code' non è riconosciuto come comando interno o esterno...</code></pre>
+<p>chiudere e riaprire Windows Terminal dopo l’installazione di VS Code.</p>
+<p>Se il problema rimane, verificare l’installazione di Visual Studio Code e che il comando <code>code</code> sia disponibile nel PATH.</p>
+<hr>
+</section>
+<section id="vs-code-utilizza-il-python-sbagliato" class="level2">
+<h2 class="anchored" data-anchor-id="vs-code-utilizza-il-python-sbagliato">VS Code utilizza il Python sbagliato</h2>
+<p>Premere:</p>
+<pre class="text"><code>Ctrl + Shift + P</code></pre>
+<p>quindi:</p>
+<pre class="text"><code>Python: Select Interpreter</code></pre>
+<p>e scegliere:</p>
+<pre class="text"><code>myenv</code></pre>
+<hr>
+</section>
+<section id="il-terminale-integrato-di-vs-code-apre-powershell-invece-di-cmd" class="level2">
+<h2 class="anchored" data-anchor-id="il-terminale-integrato-di-vs-code-apre-powershell-invece-di-cmd">Il terminale integrato di VS Code apre PowerShell invece di cmd</h2>
+<p>In VS Code è possibile selezionare il profilo del terminale desiderato.</p>
+<p>Aprire il terminale integrato con:</p>
+<pre class="text"><code>Ctrl + `</code></pre>
+<p>Dal menu del terminale scegliere:</p>
+<pre class="text"><code>Select Default Profile</code></pre>
+<p>e quindi:</p>
+<pre class="text"><code>Command Prompt</code></pre>
+<p>Aprire infine un nuovo terminale.</p>
+<p>A questo punto il prompt dovrebbe avere una forma simile a:</p>
+<pre class="text"><code>C:\CorsoPython&gt;</code></pre>
+<p>e, dopo l’attivazione dell’ambiente:</p>
+<pre class="text"><code>(myenv) C:\CorsoPython&gt;</code></pre>
+<hr>
+</section>
+</section>
+<section id="in-caso-di-problemi-con-vs-code-jupyter" class="level1">
+<h1>In caso di problemi con VS Code / Jupyter</h1>
+<p>Se VS Code non riconosce correttamente l’ambiente Conda, il kernel non compare oppure il notebook non viene eseguito come previsto, aprire la <strong>Command Palette</strong> con:</p>
+<pre class="text"><code>Ctrl + Shift + P</code></pre>
+<p>e provare, nell’ordine, i seguenti comandi.</p>
+<section id="developer-reload-window" class="level3">
+<h3 class="anchored" data-anchor-id="developer-reload-window">1. <code>Developer: Reload Window</code></h3>
+<p>Ricarica la finestra di VS Code e riavvia l’interfaccia e le estensioni senza chiudere il progetto.</p>
+<p>È il primo tentativo da fare quando VS Code sembra non aggiornare correttamente lo stato degli ambienti o delle estensioni.</p>
+<hr>
+</section>
+<section id="python-environments-refresh-all-environment-managers" class="level3">
+<h3 class="anchored" data-anchor-id="python-environments-refresh-all-environment-managers">2. <code>Python Environments: Refresh All Environment Managers</code></h3>
+<p>Forza VS Code a rieseguire la ricerca degli ambienti Python disponibili.</p>
+<p>È particolarmente utile quando:</p>
+<ul>
+<li>è stato appena creato un nuovo ambiente Conda;</li>
+<li>l’ambiente <code>myenv</code> non compare;</li>
+<li>VS Code mostra un elenco di ambienti non aggiornato.</li>
+</ul>
+<hr>
+</section>
+<section id="python-select-interpreter" class="level3">
+<h3 class="anchored" data-anchor-id="python-select-interpreter">3. <code>Python: Select Interpreter</code></h3>
+<p>Permette di scegliere esplicitamente l’interprete Python dell’ambiente Conda.</p>
+<p>Nel nostro caso selezionare:</p>
+<pre class="text"><code>myenv</code></pre>
+<p>oppure una voce simile a:</p>
+<pre class="text"><code>Python 3.12 (myenv)</code></pre>
+<hr>
+</section>
+<section id="notebook-select-notebook-kernel" class="level3">
+<h3 class="anchored" data-anchor-id="notebook-select-notebook-kernel">4. <code>Notebook: Select Notebook Kernel</code></h3>
+<p>Permette di scegliere nuovamente il kernel utilizzato dal notebook.</p>
+<p>Selezionare:</p>
+<pre class="text"><code>Python Environments...</code></pre>
+<p>e quindi:</p>
+<pre class="text"><code>myenv</code></pre>
+<hr>
+</section>
+<section id="sequenza-consigliata-di-troubleshooting" class="level2">
+<h2 class="anchored" data-anchor-id="sequenza-consigliata-di-troubleshooting">Sequenza consigliata di troubleshooting</h2>
+<pre class="text"><code>Ctrl + Shift + P
+        ↓
+Developer: Reload Window
+        ↓
+Python Environments: Refresh All Environment Managers
+        ↓
+Python: Select Interpreter
+        ↓
+myenv
+        ↓
+Notebook: Select Notebook Kernel
+        ↓
+Python Environments...
+        ↓
+myenv</code></pre>
+<p>Se il problema persiste, verificare anche che nell’ambiente sia installato:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb135"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb135-1"><a href="#cb135-1" aria-hidden="true" tabindex="-1"></a>conda install ipykernel</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>e che in VS Code siano installate e abilitate le estensioni Microsoft:</p>
+<pre class="text"><code>Python
+Pylance
+Python Debugger
+Python Environments
+Jupyter</code></pre>
+</section>
+</section>
+<section id="riepilogo-dei-comandi" class="level1">
+<h1>Riepilogo dei comandi</h1>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb137"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb137-1"><a href="#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="co">:: inizializzazione: normalmente una sola volta </span><span class="er">(</span><span class="co">persistente per tutte le sessioni successive di terminale cmd</span><span class="er">)</span></span>
+<span id="cb137-2"><a href="#cb137-2" aria-hidden="true" tabindex="-1"></a>conda init cmd.exe</span>
+<span id="cb137-3"><a href="#cb137-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb137-4"><a href="#cb137-4" aria-hidden="true" tabindex="-1"></a><span class="co">:: creare l'ambiente del corso</span></span>
+<span id="cb137-5"><a href="#cb137-5" aria-hidden="true" tabindex="-1"></a>conda create <span class="at">-n</span> myenv python=3.12</span>
+<span id="cb137-6"><a href="#cb137-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb137-7"><a href="#cb137-7" aria-hidden="true" tabindex="-1"></a><span class="co">:: attivarlo</span></span>
+<span id="cb137-8"><a href="#cb137-8" aria-hidden="true" tabindex="-1"></a>conda activate myenv</span>
+<span id="cb137-9"><a href="#cb137-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb137-10"><a href="#cb137-10" aria-hidden="true" tabindex="-1"></a><span class="co">:: isolare Python dai package installati a livello utente</span></span>
+<span id="cb137-11"><a href="#cb137-11" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> <span class="va">PYTHONNOUSERSITE</span>=1</span>
+<span id="cb137-12"><a href="#cb137-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb137-13"><a href="#cb137-13" aria-hidden="true" tabindex="-1"></a><span class="co">:: verificare Python</span></span>
+<span id="cb137-14"><a href="#cb137-14" aria-hidden="true" tabindex="-1"></a>python -<span class="at">-version</span></span>
+<span id="cb137-15"><a href="#cb137-15" aria-hidden="true" tabindex="-1"></a>where python</span>
+<span id="cb137-16"><a href="#cb137-16" aria-hidden="true" tabindex="-1"></a>python <span class="at">-c</span> <span class="st">"import sys; print(sys.executable)"</span></span>
+<span id="cb137-17"><a href="#cb137-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb137-18"><a href="#cb137-18" aria-hidden="true" tabindex="-1"></a><span class="co">:: installare i package del corso</span></span>
+<span id="cb137-19"><a href="#cb137-19" aria-hidden="true" tabindex="-1"></a>conda install <span class="at">-c</span> conda<span class="at">-forge</span> -<span class="at">-override-channels</span> numpy pandas matplotlib scikit<span class="at">-learn</span></span>
+<span id="cb137-20"><a href="#cb137-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb137-21"><a href="#cb137-21" aria-hidden="true" tabindex="-1"></a><span class="co">:: installare il kernel Jupyter</span></span>
+<span id="cb137-22"><a href="#cb137-22" aria-hidden="true" tabindex="-1"></a>conda install ipykernel</span>
+<span id="cb137-23"><a href="#cb137-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb137-24"><a href="#cb137-24" aria-hidden="true" tabindex="-1"></a><span class="co">:: entrare nella cartella del corso</span></span>
+<span id="cb137-25"><a href="#cb137-25" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> C:\CorsoPython</span>
+<span id="cb137-26"><a href="#cb137-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb137-27"><a href="#cb137-27" aria-hidden="true" tabindex="-1"></a><span class="co">:: avviare VS Code dalla cartella corrente</span></span>
+<span id="cb137-28"><a href="#cb137-28" aria-hidden="true" tabindex="-1"></a>code .</span>
+<span id="cb137-29"><a href="#cb137-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb137-30"><a href="#cb137-30" aria-hidden="true" tabindex="-1"></a><span class="co">:: al termine</span></span>
+<span id="cb137-31"><a href="#cb137-31" aria-hidden="true" tabindex="-1"></a>conda deactivate</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="concetto-fondamentale" class="level1">
+<h1>Concetto fondamentale</h1>
+<p>Un <strong>ambiente Conda</strong> è un’installazione Python isolata.</p>
+<p>Possiamo quindi avere sullo stesso computer ambienti diversi:</p>
+<pre class="text"><code>base
+│
+├── myenv             → Python 3.12 + librerie del corso
+├── progetto-A        → altre librerie
+└── progetto-B        → altra versione di Python</code></pre>
+<p>Questo riduce i conflitti tra versioni di Python e librerie e rende l’ambiente del corso più semplice da riprodurre e gestire.</p>
+<hr>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiato!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiato!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/antonio-corsi\.github\.io\/Corso_LLM_personalizzati\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Corso LLM personalizzati · Antonio</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Sito generato con Quarto</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
