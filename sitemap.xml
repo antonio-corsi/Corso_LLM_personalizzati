@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://antonio-corsi.github.io/Corso_LLM_personalizzati/materiali.html</loc>
-    <lastmod>2026-10-13T21:56:05.000Z</lastmod>
-  </url>
-  <url>
     <loc>https://antonio-corsi.github.io/Corso_LLM_personalizzati/installazione_python_windows_miniconda_vscode_jupyter_v14.html</loc>
-    <lastmod>2026-10-13T22:31:03.147Z</lastmod>
-  </url>
-  <url>
-    <loc>https://antonio-corsi.github.io/Corso_LLM_personalizzati/demo_embedding_contestuali.html</loc>
-    <lastmod>2026-10-13T22:31:03.020Z</lastmod>
-  </url>
-  <url>
-    <loc>https://antonio-corsi.github.io/Corso_LLM_personalizzati/5__Pre-allenare_dati_non_etichettati_con_innesti_gpt-oss.html</loc>
-    <lastmod>2026-10-13T22:31:03.145Z</lastmod>
+    <lastmod>2026-10-13T22:38:41.541Z</lastmod>
   </url>
   <url>
     <loc>https://antonio-corsi.github.io/Corso_LLM_personalizzati/3__Il_meccanismo_della_attenzione_con_innesti_gpt-oss.html</loc>
-    <lastmod>2026-10-13T22:31:03.137Z</lastmod>
-  </url>
-  <url>
-    <loc>https://antonio-corsi.github.io/Corso_LLM_personalizzati/1. Introduzione a PyTorch.html</loc>
-    <lastmod>2026-10-13T22:31:03.114Z</lastmod>
-  </url>
-  <url>
-    <loc>https://antonio-corsi.github.io/Corso_LLM_personalizzati/2__Pre-elaborazione_di_testi_con_innesti_gpt-oss.html</loc>
-    <lastmod>2026-10-13T22:31:03.136Z</lastmod>
-  </url>
-  <url>
-    <loc>https://antonio-corsi.github.io/Corso_LLM_personalizzati/4__La_architettura_di_un_modello_GPT_per_la_generazione_di_testo_con_innesti_gpt-oss.html</loc>
-    <lastmod>2026-10-13T22:31:03.138Z</lastmod>
+    <lastmod>2026-10-13T22:38:41.341Z</lastmod>
   </url>
   <url>
     <loc>https://antonio-corsi.github.io/Corso_LLM_personalizzati/6__Fine_tuning_per_la_classificazione_con_innesti_gpt-oss.html</loc>
-    <lastmod>2026-10-13T22:31:03.146Z</lastmod>
+    <lastmod>2026-10-13T22:38:41.348Z</lastmod>
+  </url>
+  <url>
+    <loc>https://antonio-corsi.github.io/Corso_LLM_personalizzati/4__La_architettura_di_un_modello_GPT_per_la_generazione_di_testo_con_innesti_gpt-oss.html</loc>
+    <lastmod>2026-10-13T22:38:41.342Z</lastmod>
   </url>
   <url>
     <loc>https://antonio-corsi.github.io/Corso_LLM_personalizzati/index.html</loc>
-    <lastmod>2026-10-13T21:55:54.000Z</lastmod>
+    <lastmod>2026-10-13T22:38:41.540Z</lastmod>
+  </url>
+  <url>
+    <loc>https://antonio-corsi.github.io/Corso_LLM_personalizzati/1. Introduzione a PyTorch.html</loc>
+    <lastmod>2026-10-13T22:38:41.320Z</lastmod>
+  </url>
+  <url>
+    <loc>https://antonio-corsi.github.io/Corso_LLM_personalizzati/demo_embedding_contestuali.html</loc>
+    <lastmod>2026-10-13T22:38:41.537Z</lastmod>
   </url>
   <url>
     <loc>https://antonio-corsi.github.io/Corso_LLM_personalizzati/ISTRUZIONI_SITO.html</loc>
-    <lastmod>2026-10-13T21:56:32.000Z</lastmod>
+    <lastmod>2026-10-13T22:38:41.361Z</lastmod>
+  </url>
+  <url>
+    <loc>https://antonio-corsi.github.io/Corso_LLM_personalizzati/materiali.html</loc>
+    <lastmod>2026-10-13T22:38:41.545Z</lastmod>
+  </url>
+  <url>
+    <loc>https://antonio-corsi.github.io/Corso_LLM_personalizzati/2__Pre-elaborazione_di_testi_con_innesti_gpt-oss.html</loc>
+    <lastmod>2026-10-13T22:38:41.339Z</lastmod>
+  </url>
+  <url>
+    <loc>https://antonio-corsi.github.io/Corso_LLM_personalizzati/5__Pre-allenare_dati_non_etichettati_con_innesti_gpt-oss.html</loc>
+    <lastmod>2026-10-13T22:38:41.347Z</lastmod>
   </url>
 </urlset>
